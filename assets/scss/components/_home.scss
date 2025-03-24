@@ -1,0 +1,101 @@
+/*=============== HOME ===============*/
+.home{
+   &__container{
+      position: relative;
+      display: grid;
+      row-gap: 2rem;
+      padding-block: 8rem 4rem;
+   }
+   &__subtitle,
+   &__title,
+   &__button{
+      font-family: var(--second-font);
+      color: var(--title-color);
+   }
+   &__subtitle{
+      font-size: var(--h2-font-size);
+      margin-bottom: .5rem;
+   }
+   &__title{
+      font-size: var(--biggest-font-size);
+      margin-bottom: 1rem;
+   }
+   &__description{
+      font-size: var(--small-font-size);
+      margin-bottom: 2rem;
+   }
+   &__button{
+      display: inline-block;
+      background-color: var(--white-color);
+      box-shadow: 0 8px 32px hsla(0, 0%, 0%, .1);
+      padding: 1rem 3rem;
+      border-radius: 4rem;
+      font-weight: var(--font-bold);
+      transition: box-shadow .4s;
+
+      &:hover{
+         box-shadow: 0 8px 32px hsla(0, 0%, 0%, .15);
+      }
+   }
+   &__social{
+      position: absolute;
+      top: 10rem;
+      right: 0;
+      display: grid;
+      row-gap: 1rem;
+
+      &-link{
+         display: inline-flex;
+         font-size: 1.25rem;
+         color: var(--title-color);
+         transition: transform .4s;
+
+         &:hover{
+            transform: translateY(-.25rem);
+         }
+      }
+   }
+   &__images{
+      display: grid;
+      position: relative;
+   }
+   &__shoe{
+      width: 300px;
+      margin-inline: auto;
+   }
+   &__circle{
+      width: 250px;
+      height: 250px;
+      background: linear-gradient(180deg,
+                  hsla(0, 0%, 100%),
+                  hsla(0, 0%, 96%));
+      border-radius: 50%;
+      position: absolute;
+      inset: 0;
+      margin: auto;
+   }
+}
+
+/* Swiper class */
+.swiper{
+   margin-inline: initial;
+
+   &-pagination-bullets.swiper-pagination-horizontal{
+      bottom: -2rem;
+   }
+   &-pagination-bullet{
+      width: 1rem;
+      height: .25rem;
+      border-radius: 1rem;
+      background-color: var(--black-color-light);
+      opacity: 1;
+      transition: background-color .3s, width .3s;
+   }
+   &-pagination-bullet-active{
+      width: 1.25rem;
+      background-color: var(--black-color);
+   }
+   &-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet{
+      margin: 0 2px;
+   }
+}

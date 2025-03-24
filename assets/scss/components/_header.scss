@@ -1,0 +1,65 @@
+/*=============== HEADER & NAV ===============*/
+.header{
+   position: fixed;
+   width: 100%;
+   top: 0;
+   left: 0;
+   background-color: var(--body-color);
+   z-index: var(--z-fixed);
+   transition: box-shadow .4s;
+}
+.nav{
+   height: var(--header-height);
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+
+   &__logo img{
+      width: 3rem;
+   }
+   &__toggle,
+   &__close{
+      display: flex;
+      font-size: 1.25rem;
+      color: var(--title-color);
+      cursor: pointer;
+   }
+   // Navigation for mobile devices
+   &__menu{
+      @media screen and (max-width: 1023px){
+         position: fixed;
+         top: 0;
+         right: -100%;
+         background-color: var(--body-color);
+         box-shadow: -1px 0 16px hsla(0, 0%, 0%, .1);
+         width: 80%;
+         height: 100%;
+         padding: 6rem 3rem;
+         transition: right .4s;
+      }
+   }
+   &__list{
+      display: flex;
+      flex-direction: column;
+      row-gap: 2.5rem;
+   }
+   &__link{
+      color: var(--title-color);
+      font-family: var(--second-font);
+   }
+   &__close{
+      position: absolute;
+      top: 1.125rem;
+      right: 1.5rem;
+   }
+}
+
+/* Show menu */
+.show-menu{
+   right: 0;
+}
+
+/* Add shadow header */
+.shadow-header{
+   box-shadow: 0 1px 16px hsla(0, 0%, 0%, .1);
+}
