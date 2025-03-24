@@ -1,0 +1,515 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 4.5rem;
+
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --black-color: hsl(0, 0%, 5%);
+  --black-color-light: hsl(0, 0%, 70%);
+  --white-color: hsl(0, 0%, 100%);
+  --title-color: hsl(0, 0%, 5%);
+  --text-color: hsl(0, 0%, 55%);
+  --body-color: hsl(0, 0%, 96%);
+  --vert-mini: #7fff00;
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Poppins", sans-serif;
+  --second-font: "Montserrat", sans-serif;
+  --biggest-font-size: 2.5rem;
+  --h2-font-size: 1.25rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .113rem;
+
+  /*========== Font weight ==========*/
+  --font-regular: 400;
+  --font-bold: 700;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1152px) {
+  :root {
+    --biggest-font-size: 4.5rem;
+    --h2-font-size: 1.5rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--black-color);
+  color: var(--white-color);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+}
+
+/*=============== HEADER & NAV ===============*/
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--black-color);
+  z-index: var(--z-fixed);
+  transition: box-shadow .4s;
+}
+
+.nav {
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__logo img {
+  width: 4rem;
+}
+
+.nav__toggle, 
+.nav__close {
+  display: flex;
+  font-size: 1.25rem;
+  color: var(--white-color);
+  cursor: pointer;
+}
+
+/* Navigation for mobile devices */
+@media screen and (max-width: 1023px) {
+  .nav__menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    background-color: var(--black-color);
+    box-shadow: -1px 0 16px hsla(0, 0%, 0%, .1);
+    width: 80%;
+    height: 100%;
+    padding: 6rem 3rem;
+    transition: right .4s;
+  }
+  .nav__logo img {
+    width: 3.5rem;
+  }
+  .home__data {
+    margin-top: -3rem; /* Ajustez la valeur selon vos besoins */
+  }
+  .home__container {
+    grid-template-columns: 350px;
+    justify-content: center;
+  }
+  .home__data {
+    text-align: center;
+  }
+
+}
+
+.nav__list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.5rem;
+}
+
+.nav__link {
+  color: var(--white-color);
+  font-family: var(--second-font);
+}
+
+.nav__close {
+  position: absolute;
+  top: 1.125rem;
+  right: 1.5rem;
+}
+
+.nav__link:hover {
+  color: var(--vert-mini);
+}
+
+.nav__link {
+  position: relative;
+}
+
+.nav__link::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--vert-mini);
+  transition: width 0.3s ease;
+}
+
+.nav__link:hover::after {
+  width: 100%;
+}
+
+
+/* Show menu */
+.show-menu {
+  right: 0;
+}
+
+/* Add shadow header */
+.shadow-header {
+  box-shadow: 0 1px 16px hsla(0, 0%, 0%, .1);
+}
+
+/*=============== HOME ===============*/
+.home__container {
+  position: relative;
+  display: grid;
+  row-gap: 2rem;
+  padding-block: 8rem 4rem;
+}
+
+.home__subtitle,  
+.home__button {
+  font-family: var(--second-font);
+  color: var(--white-color);
+}
+
+.home__subtitle {
+  font-size: var(--h2-font-size);
+  margin-bottom: .5rem;
+}
+
+.home__subtitle {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid white; /* The typewriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0; /* Centering handled with transform */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 2.25s steps(40, end),
+    blink-caret .5s step-end infinite;
+  transform-origin: left; /* Start typing from the left */
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #7fff00; }
+}
+
+
+
+.home__title {
+  font-size: var(--biggest-font-size);
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, #30CFD0 0%, var(--vert-mini) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.home__description {
+  font-size: var(--small-font-size);
+  margin-bottom: 2rem;
+}
+
+.home__button {
+  display: inline-block;
+  background-color: var(--black-color);
+  color: white;
+  border: 1px solid var(--white-color);
+  box-shadow: 0 8px 32px hsla(0, 0%, 0%, .1);
+  padding: 1rem 3rem;
+  border-radius: 4rem;
+  font-weight: var(--font-bold);
+  transition: box-shadow .4s;
+  position: relative;
+}
+
+.home__button::before {
+  content: '';
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 1; /* Changer l'opacité à 1 pour que le glow soit toujours visible */
+  border-radius: 4rem;
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+
+
+.home__images {
+  display: grid;
+  position: relative;
+}
+
+.home__shoe {
+  width: 300px;
+  margin-inline: auto;
+}
+
+/* Swiper class */
+.swiper {
+  margin-inline: initial;
+}
+
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: -2rem;
+}
+
+.swiper-pagination-bullet {
+  width: 1rem;
+  height: .25rem;
+  border-radius: 1rem;
+  background-color: var(--black-color-light);
+  opacity: 1;
+  transition: background-color .3s, width .3s;
+}
+
+.swiper-pagination-bullet-active {
+  width: 1.25rem;
+  background-color: var(--black-color);
+}
+
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: 0 2px;
+}
+
+body {
+  max-width: 800px; /* Définir la largeur maximale de la page */
+  margin: 0 auto; /* Centrer la page horizontalement */
+  padding: 0 1.25rem;
+  font-family: 'Lato', sans-serif;
+}
+
+
+@keyframes tonext {
+  75% {
+    left: 0;
+  }
+  95% {
+    left: 100%;
+  }
+  98% {
+    left: 100%;
+  }
+  99% {
+    left: 0;
+  }
+}
+
+@keyframes tostart {
+  75% {
+    left: 0;
+  }
+  95% {
+    left: -300%;
+  }
+  98% {
+    left: -300%;
+  }
+  99% {
+    left: 0;
+  }
+}
+
+@keyframes snap {
+  96% {
+    scroll-snap-align: center;
+  }
+  97% {
+    scroll-snap-align: none;
+  }
+  99% {
+    scroll-snap-align: none;
+  }
+  100% {
+    scroll-snap-align: center;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  scrollbar-color: transparent transparent; /* thumb and track color */
+  scrollbar-width: 0px;
+}
+
+*::-webkit-scrollbar {
+  width: 0;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: transparent;
+  border: none;
+}
+
+* {
+  -ms-overflow-style: none;
+}
+
+ol, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width: 320px) {
+  :root{
+    --header-height: 4.5rem;
+  }
+  .container {
+    margin-inline: 1rem;
+  }
+
+  .home__title {
+    font-size: 2rem;
+  }
+  .home__subtitle {
+    font-size: 0.8rem;
+  }
+  .home__circle {
+    width: 220px;
+    height: 220px;
+  }
+  .home__container {
+    grid-template-columns: 230px;
+    justify-content: center;
+  }
+  .home__data {
+    text-align: center;
+  }
+  .nav__menu {
+    width: 70%;
+  }
+}
+
+/* For medium devices */
+@media screen and (min-width: 576px) {
+  .nav__menu {
+    width: 40%;
+  }
+  .home__container {
+    grid-template-columns: 350px;
+    justify-content: center;
+  }
+  .home__data {
+    text-align: center;
+  }
+  
+}
+
+@media screen and (min-width: 576px) and (max-width: 1024px) {
+  .nav__logo img {
+    width: 3.5rem; /* Ajustez la largeur selon vos besoins */
+  }
+  .home__shoe {
+    width: 800px;
+  }
+  
+}
+
+/* For large devices */
+@media screen and (min-width: 1023px) {
+  .nav {
+    height: calc(var(--header-height) + 2rem);
+  }
+  .nav__toggle, 
+  .nav__close {
+    display: none;
+  }
+  .nav__menu {
+    width: initial;
+  }
+  .nav__list {
+    flex-direction: row;
+    column-gap: 4rem;
+  }
+
+  .home__container {
+    height: 100vh;
+    grid-template-columns: repeat(2, 400px);
+    place-items: center;
+    column-gap: 2rem;
+  }
+  .home__data {
+    text-align: initial;
+  }
+  
+}
+
+@media screen and (min-width: 1152px) {
+  .container {
+    margin-inline: auto;
+  }
+
+  .home__container {
+    grid-template-columns: 430px 600px;
+    column-gap: 4.5rem;
+  }
+  .home__title {
+    margin-bottom: 1.25rem;
+  }
+  .home__description {
+    font-size: var(--small-font-size);
+    font-weight: 600;
+    margin-bottom: 3rem;
+  }
+  .home__shoe {
+    width: 520px;
+  }
+  .home__circle {
+    width: 500px;
+    height: 500px;
+  }
+  
+}

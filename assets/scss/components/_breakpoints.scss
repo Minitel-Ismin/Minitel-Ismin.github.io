@@ -1,0 +1,108 @@
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width: 320px){
+   .container{
+      margin-inline: 1rem;
+   }
+
+   .home{
+      &__title{
+         font-size: 2rem;
+      }
+      &__circle{
+         width: 220px;
+         height: 220px;
+      }
+   }
+}
+
+/* For medium devices */
+@media screen and (min-width: 576px){
+   .nav__menu{
+      width: 60%;
+   }
+
+   .home{
+      &__container{
+         grid-template-columns: 350px;
+         justify-content: center;
+      }
+      &__data{
+         text-align: center;
+      }
+   }
+}
+
+/* For large devices */
+@media screen and (min-width: 1023px){
+   .nav{
+      height: calc(var(--header-height) + 2rem);
+
+      &__toggle,
+      &__close{
+         display: none;
+      }
+      &__menu{
+         width: initial;
+      }
+      &__list{
+         flex-direction: row;
+         column-gap: 4rem;
+      }
+   }
+
+   .home{
+      &__container{
+         height: 100vh;
+         grid-template-columns: repeat(2, 400px);
+         place-items: center;
+         column-gap: 2rem;
+      }
+      &__data{
+         text-align: initial;
+      }
+      &__social{
+         align-content: center;
+         top: 0;
+         bottom: 0;
+      }
+   }
+}
+
+@media screen and (min-width: 1152px){
+   .container{
+      margin-inline: auto;
+   }
+
+   .home{
+      &__container{
+         grid-template-columns: 430px 600px;
+         column-gap: 4.5rem;
+      }
+      &__title{
+         margin-bottom: 1.25rem;
+      }
+      &__description{
+         font-size: var(--normal-font-size);
+         margin-bottom: 3rem;
+      }
+      &__shoe{
+         width: 600px;
+      }
+      &__circle{
+         width: 500px;
+         height: 500px;
+      }
+   }
+}
+
+@media screen and (min-width: 1248px){
+   .home__social{
+      right: -3rem;
+      row-gap: 2rem;
+
+      &-link{
+         font-size: 1.5rem;
+      }
+   }
+}
