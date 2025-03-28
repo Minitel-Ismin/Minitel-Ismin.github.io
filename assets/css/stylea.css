@@ -12,6 +12,7 @@
   --title-color: hsl(0, 0%, 5%);
   --text-color: hsl(0, 0%, 55%);
   --body-color: hsl(0, 0%, 96%);
+  --vert-mini: #7fff00;
 
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
@@ -20,7 +21,7 @@
   --biggest-font-size: 2.5rem;
   --h2-font-size: 1.25rem;
   --normal-font-size: .938rem;
-  --small-font-size: .813rem;
+  --small-font-size: .875rem;
 
   /*========== Font weight ==========*/
   --font-regular: 400;
@@ -94,7 +95,7 @@ img {
 }
 
 .nav__logo img {
-  width: 4.5rem;
+  width: 4rem;
 }
 
 .nav__toggle, 
@@ -152,7 +153,7 @@ img {
 }
 
 .nav__link:hover {
-  color: gold;
+  color: var(--vert-mini);
 }
 
 .nav__link {
@@ -166,7 +167,7 @@ img {
   left: 0;
   width: 0;
   height: 2px;
-  background-color: gold;
+  background-color: var(--vert-mini);
   transition: width 0.3s ease;
 }
 
@@ -184,6 +185,8 @@ img {
 .shadow-header {
   box-shadow: 0 1px 16px hsla(0, 0%, 0%, .1);
 }
+
+
 
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
@@ -240,5 +243,138 @@ img {
   .home__container {
     grid-template-columns: 430px 600px;
     column-gap: 4.5rem;
+  }
+}
+
+  
+  
+  @media only screen and (max-width: 1152px) {
+    .ag-courses_item {
+      -ms-flex-preferred-size: calc(50% - 30px);
+      flex-basis: calc(50% - 30px);
+    }
+    .ag-courses-item_title {
+      font-size: 24px;
+    }
+  }
+  
+  @media only screen and (max-width: 1153px) {
+    .ag-format-container {
+      width: 96%;
+    }
+  
+  }
+  @media only screen and (max-width: 639px) {
+    .ag-courses_item {
+      -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+    }
+    .ag-courses-item_title {
+      min-height: 72px;
+      line-height: 1;
+  
+      font-size: 24px;
+    }
+    .ag-courses-item_link {
+      padding: 22px 40px;
+    }
+    .ag-courses-item_date-box {
+      font-size: 16px;
+    }
+  }
+
+/*=============== MAIN ===============*/
+.main {
+  padding-top: var(--header-height);
+}
+
+/*=============== ABOUT ===============*/
+.about {
+  padding: 4rem 0;
+}
+
+.about__container {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+.about__data {
+  text-align: center;
+}
+
+.section__title {
+  font-size: var(--h2-font-size);
+  margin-bottom: 1.5rem;
+  color: var(--white-color);
+}
+
+.about__description {
+  margin-bottom: 2rem;
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.about__list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.about__item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.about__item i {
+  color: var(--vert-mini);
+  font-size: 1.25rem;
+}
+
+.about__image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about__img {
+  width: 300px;
+  height: auto;
+}
+
+/*=============== BREAKPOINTS ===============*/
+@media screen and (min-width: 1023px) {
+  .nav__toggle, 
+  .nav__close {
+    display: none;
+  }
+  
+  .nav__menu {
+    width: initial;
+  }
+  
+  .nav__list {
+    flex-direction: row;
+    column-gap: 4rem;
+  }
+
+  .about__container {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .about__data {
+    text-align: left;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .about__img {
+    width: 250px;
+  }
+  
+  .about__description {
+    font-size: var(--small-font-size);
   }
 }
