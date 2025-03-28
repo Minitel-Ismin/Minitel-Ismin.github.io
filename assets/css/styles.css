@@ -513,3 +513,66 @@ ol, li {
   }
   
 }
+
+/*=============== MAIN ===============*/
+.main {
+  padding-top: var(--header-height);
+}
+
+/*=============== ABOUT ===============*/
+.about {
+  padding: 4rem 0;
+}
+
+.about__container {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+.about__data {
+  text-align: center;
+}
+
+.about__description {
+  margin-bottom: 2rem;
+  color: var(--text-color);
+}
+
+.about__list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.about__item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--text-color);
+}
+
+.about__item i {
+  color: var(--vert-mini);
+  font-size: 1.25rem;
+}
+
+.about__image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about__img {
+  width: 300px;
+  height: auto;
+}
+
+@media screen and (min-width: 1023px) {
+  .about__container {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .about__data {
+    text-align: left;
+  }
+}
