@@ -12,6 +12,7 @@
   --title-color: hsl(0, 0%, 5%);
   --text-color: hsl(0, 0%, 55%);
   --body-color: hsl(0, 0%, 96%);
+  --vert-mini: #7fff00;
 
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
@@ -152,7 +153,7 @@ img {
 }
 
 .nav__link:hover {
-  color: gold;
+  color: var(--vert-mini);
 }
 
 .nav__link {
@@ -166,7 +167,7 @@ img {
   left: 0;
   width: 0;
   height: 2px;
-  background-color: gold;
+  background-color: var(--vert-mini);
   transition: width 0.3s ease;
 }
 

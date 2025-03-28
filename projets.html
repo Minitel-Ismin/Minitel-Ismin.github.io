@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+   <html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <!--=============== FAVICON ===============-->
+      <link rel="shortcut icon" href="assets/img/Logo_MINITEL_full_blanc.png" type="image/x-icon">
+
+      <!--=============== REMIXICONS ===============-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin="">
+
+      <!--=============== SWIPER CSS ===============-->
+      <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+
+      <!--=============== CSS ===============-->
+      <link rel="stylesheet" href="assets/css/stylep.css">
+
+      <title>MINITEL - Projets & Événements</title>
+   </head>
+   <body>
+      <!--==================== HEADER ====================-->
+      <header class="header" id="header">
+         <nav class="nav container">
+            <a href="index.html" class="nav__logo">
+               <img src="assets/img/Logo_Mines_Blanc.png" alt="image">
+            </a>
+
+            <div class="nav__menu" id="nav-menu">
+               <ul class="nav__list">
+                  <li class="nav__item">
+                     <a href="index.html" class="nav__link">ACCUEIL</a>
+                  </li>
+
+                  <li class="nav__item">
+                     <a href="apropos.html" class="nav__link">A PROPOS</a>
+                  </li>
+
+                  <li class="nav__item">
+                     <a href="mandat.html" class="nav__link">MANDAT</a>
+                  </li>
+
+                  <li class="nav__item">
+                     <a href="projets.html" class="nav__link">PROJETS</a>
+                  </li>
+
+                  <li class="nav__item">
+                     <a href="photo.html" class="nav__link">HALL OF FAME</a>
+                  </li>
+
+                  <li class="nav__item">
+                     <a href="contact.html" class="nav__link">CONTACT</a>
+                  </li>
+               </ul>
+
+               <!-- Close button -->
+               <div class="nav__close" id="nav-close">
+                  <i class="ri-close-line"></i>
+               </div>
+            </div>
+
+            <!-- Toggle button -->
+            <div class="nav__toggle" id="nav-toggle">
+               <i class="ri-apps-2-fill"></i>
+            </div>
+         </nav>
+      </header>
+
+      <!--==================== MAIN ====================-->
+      <main class="main">
+         <!--==================== PROJETS ====================-->
+         <section class="projets section">
+            <div class="container">
+               <h2 class="section__title">Nos Projets & Événements</h2>
+
+               <!-- Search and Filter Section -->
+               <div class="search-filter">
+                  <div class="search-box">
+                     <input type="text" class="search-input" placeholder="Rechercher un projet..." id="searchInput">
+                  </div>
+                  <div class="filter-tags" id="filterTags">
+                     <span class="filter-tag active" data-tag="all">Tous</span>
+                     <span class="filter-tag" data-tag="Événement">Événement</span>
+                     <span class="filter-tag" data-tag="Formation">Formation</span>
+                     <span class="filter-tag" data-tag="Gaming">Gaming</span>
+                     <span class="filter-tag" data-tag="Cyber">Cyber</span>
+                     <span class="filter-tag" data-tag="Réseau">Réseau</span>
+                     <span class="filter-tag" data-tag="DevOps">DevOps</span>
+                  </div>
+               </div>
+
+               <!-- Projets en cours -->
+               <div class="projets-section">
+                  <h3 class="section__subtitle">Projets en cours</h3>
+                  <div class="projets__grid">
+                     <a href="projets/nuit-info.html" class="projet__card">
+                        <div class="projet__image">
+                           <img src="assets/img/projet1.jpg" alt="Projet 1">
+                           <div class="projet__overlay">
+                              <i class="ri-links-line"></i>
+                           </div>
+                        </div>
+                        <div class="projet__content">
+                           <h3 class="projet__title">Nuit de l'Info</h3>
+                           <p class="projet__description">
+                              Un événement annuel où les étudiants développent des projets informatiques en une seule nuit.
+                           </p>
+                           <div class="projet__tags">
+                              <span class="projet__tag">Événement</span>
+                              <span class="projet__tag">Formation</span>
+                           </div>
+                        </div>
+                     </a>
+
+                     <a href="projets/tournoi-gaming.html" class="projet__card">
+                        <div class="projet__image">
+                           <img src="assets/img/projet2.jpg" alt="Projet 2">
+                           <div class="projet__overlay">
+                              <i class="ri-links-line"></i>
+                           </div>
+                        </div>
+                        <div class="projet__content">
+                           <h3 class="projet__title">Tournoi Gaming</h3>
+                           <p class="projet__description">
+                              Organisation de tournois de jeux vidéo pour les étudiants du campus.
+                           </p>
+                           <div class="projet__tags">
+                              <span class="projet__tag">Gaming</span>
+                              <span class="projet__tag">Événement</span>
+                           </div>
+                        </div>
+                     </a>
+
+                     <a href="projets/formation-reseau.html" class="projet__card">
+                        <div class="projet__image">
+                           <img src="assets/img/projet3.jpg" alt="Projet 3">
+                           <div class="projet__overlay">
+                              <i class="ri-links-line"></i>
+                           </div>
+                        </div>
+                        <div class="projet__content">
+                           <h3 class="projet__title">Formation Réseau</h3>
+                           <p class="projet__description">
+                              Sessions de formation sur les réseaux et la sécurité informatique.
+                           </p>
+                           <div class="projet__tags">
+                              <span class="projet__tag">Formation</span>
+                              <span class="projet__tag">Réseau</span>
+                           </div>
+                        </div>
+                     </a>
+                  </div>
+               </div>
+
+               <!-- Événements passés -->
+               <div class="projets-section">
+                  <h3 class="section__subtitle">Événements passés</h3>
+                  <div class="projets__grid">
+                     <a href="projets/ctf-2023.html" class="projet__card">
+                        <div class="projet__image">
+                           <img src="assets/img/event1.jpg" alt="Event 1">
+                           <div class="projet__overlay">
+                              <i class="ri-links-line"></i>
+                           </div>
+                        </div>
+                        <div class="projet__content">
+                           <h3 class="projet__title">CTF 2023</h3>
+                           <p class="projet__description">
+                              Capture The Flag organisé en partenariat avec d'autres écoles.
+                           </p>
+                           <div class="projet__tags">
+                              <span class="projet__tag">Cyber</span>
+                              <span class="projet__tag">Événement</span>
+                           </div>
+                        </div>
+                     </a>
+
+                     <a href="projets/workshop-docker.html" class="projet__card">
+                        <div class="projet__image">
+                           <img src="assets/img/event2.jpg" alt="Event 2">
+                           <div class="projet__overlay">
+                              <i class="ri-links-line"></i>
+                           </div>
+                        </div>
+                        <div class="projet__content">
+                           <h3 class="projet__title">Workshop Docker</h3>
+                           <p class="projet__description">
+                              Formation sur la conteneurisation avec Docker.
+                           </p>
+                           <div class="projet__tags">
+                              <span class="projet__tag">Formation</span>
+                              <span class="projet__tag">DevOps</span>
+                           </div>
+                        </div>
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </section>
+      </main>
+
+      <!--=============== SWIPER JS ===============-->
+      <script src="assets/js/swiper-bundle.min.js"></script>
+
+      <!--=============== MAIN JS ===============-->
+      <script src="assets/js/main.js"></script>
+
+      <!--=============== PROJETS JS ===============-->
+      <script src="assets/js/projets.js"></script>
+   </body>
+</html> 
