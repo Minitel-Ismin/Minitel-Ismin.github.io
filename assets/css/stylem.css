@@ -21,7 +21,7 @@
   --biggest-font-size: 2.5rem;
   --h2-font-size: 1.25rem;
   --normal-font-size: .938rem;
-  --small-font-size: .113rem;
+  --small-font-size: .875rem;
 
   /*========== Font weight ==========*/
   --font-regular: 400;
@@ -132,7 +132,6 @@ img {
   .home__data {
     text-align: center;
   }
-
 }
 
 .nav__list {
@@ -174,7 +173,6 @@ img {
 .nav__link:hover::after {
   width: 100%;
 }
-
 
 /* Show menu */
 .show-menu {
@@ -229,8 +227,6 @@ img {
     flex-direction: row;
     column-gap: 4rem;
   }
-
-
 }
 
 @media screen and (min-width: 1152px) {
@@ -422,3 +418,140 @@ img {
       font-size: 16px;
     }
   }
+
+/*=============== MAIN ===============*/
+.main {
+  padding-top: var(--header-height);
+}
+
+/*=============== MANDAT ===============*/
+.mandat {
+  padding: 4rem 0;
+}
+
+.section__title {
+  text-align: center;
+  font-size: var(--h2-font-size);
+  margin-bottom: 3rem;
+  color: var(--white-color);
+}
+
+/* Pôle sections */
+.pole-section {
+  margin-bottom: 4rem;
+}
+
+.pole-title {
+  font-size: 1.5rem;
+  color: var(--vert-mini);
+  margin-bottom: 2rem;
+  text-align: center;
+  font-family: var(--second-font);
+}
+
+/* Cards styles */
+.ag-format-container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.ag-courses_box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding: 50px 5px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.ag-courses_item {
+  -ms-flex-preferred-size: calc(33.33333% - 30px);
+  flex-basis: calc(33.33333% - 30px);
+  margin: 0 15px 30px;
+  overflow: hidden;
+  border-radius: 28px;
+}
+
+.ag-courses-item_link {
+  display: block;
+  padding: 30px 20px;
+  background-color: #121212;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+}
+
+.ag-courses-item_link:hover,
+.ag-courses-item_link:hover .ag-courses-item_bg {
+  transform: scale(1.02);
+  -webkit-transition: all 0.35s;
+  -o-transition: all 0.35s;
+  transition: all 0.35s;
+}
+
+.ag-courses-item_link:hover .ag-courses-item_bg {
+  background-color: #10a1ea;
+}
+
+.ag-courses-item_bg {
+  height: 128px;
+  width: 128px;
+  background-color: #f9f234;
+  z-index: 1;
+  border-radius: 50%;
+  position: absolute;
+  top: -75px;
+  right: -75px;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.ag-courses-item_title {
+  font-weight: bold;
+  color: #fff;
+  font-size: 30px;
+  margin-bottom: 5px;
+  z-index: 2;
+  position: relative;
+}
+
+.ag-courses-item_date-box {
+  font-size: 18px;
+  color: #fff;
+  z-index: 2;
+  position: relative;
+}
+
+.ag-courses-item_date {
+  font-weight: 600;
+}
+
+/*=============== BREAKPOINTS ===============*/
+@media screen and (max-width: 1023px) {
+  .ag-courses_item {
+    -ms-flex-preferred-size: calc(50% - 30px);
+    flex-basis: calc(50% - 30px);
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .ag-courses_item {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+  }
+  
+  .ag-courses-item_title {
+    font-size: 24px;
+  }
+  
+  .ag-courses-item_date-box {
+    font-size: 16px;
+  }
+}
