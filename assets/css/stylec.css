@@ -1,27 +1,29 @@
 /*=============== GOOGLE FONTS ===============*/
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Cambria&display=swap');
 /*=============== VARIABLES CSS ===============*/
 :root {
   --header-height: 4.5rem;
 
   /*========== Colors ==========*/
-  /*Color mode HSL(hue, saturation, lightness)*/
-  --black-color: hsl(0, 0%, 5%);
-  --black-color-light: hsl(0, 0%, 70%);
-  --white-color: hsl(0, 0%, 100%);
-  --title-color: hsl(0, 0%, 5%);
-  --text-color: hsl(0, 0%, 55%);
-  --body-color: hsl(0, 0%, 96%);
-  --vert-mini: #7fff00;
+  --black-color: #1E1E1E;
+  --black-color-light: #323232;
+  --white-color: #E1E1E1;
+  --title-color: #1E1E1E;
+  --text-color: #434343;
+  --body-color: #1E1E1E;
+  --vert-mini: #69FF0A;
+  --bleu-mini: #00FFD7;
+  --fuschia-mini: #C80CDF;
+  --violet-mini: #950CDF;
 
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
-  --body-font: "Poppins", sans-serif;
-  --second-font: "Montserrat", sans-serif;
+  --body-font: "Cambria", serif;
+  --second-font: "JetBrains Mono", monospace;
   --biggest-font-size: 2.5rem;
   --h2-font-size: 1.25rem;
   --normal-font-size: .938rem;
-  --small-font-size: .813rem;
+  --small-font-size: .113rem;
 
   /*========== Font weight ==========*/
   --font-regular: 400;
@@ -54,6 +56,7 @@ body {
   font-size: var(--normal-font-size);
   background-color: var(--black-color);
   color: var(--white-color);
+  text-align: justify;
 }
 
 ul {
@@ -266,10 +269,10 @@ img {
 }
 
 .order-form .text{
+  font-family: var(--second-font);
   text-align: center;
   font-size: 24px;
   font-weight: 500;
-  font-family: 'Poppins', sans-serif;
   background: -webkit-linear-gradient(right, #56d8e4, #9f01ea, #56d8e4, #9f01ea);
   -webkit-background-clip: text;
   background-clip: text;
@@ -288,6 +291,7 @@ img {
 }
 
 label {
+  font-family: var(--second-font);
   display: block;
   font-weight: var(--font-regular);
   color: white;
@@ -296,6 +300,7 @@ label {
 }
 
 input, textarea {
+  font-family: var(--body-font);
   width: 100%;
   padding: 0.75rem;
   border: none;
@@ -314,7 +319,6 @@ input {
 textarea {
   resize: vertical;
   min-height: 100px;
-  font-family: var(--body-font);
 }
 
 button {
@@ -333,4 +337,43 @@ button:hover {
   background-color: black;
   color: white;
   box-shadow: 0 8px 32px hsla(0, 0%, 0%, .15);
+}
+
+.contact__title {
+  font-family: var(--second-font);
+  font-size: var(--biggest-font-size);
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, var(--bleu-mini) 0%, var(--vert-mini) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.contact__button {
+  display: inline-block;
+  background-color: var(--black-color);
+  color: white;
+  border: 1px solid var(--white-color);
+  box-shadow: 0 8px 32px hsla(0, 0%, 0%, .1);
+  padding: 1rem 3rem;
+  border-radius: 4rem;
+  font-weight: var(--font-bold);
+  transition: box-shadow .4s;
+  position: relative;
+}
+
+.contact__button::before {
+  content: '';
+  background: linear-gradient(45deg, var(--fuschia-mini), var(--violet-mini), var(--bleu-mini), var(--vert-mini));
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 1;
+  border-radius: 4rem;
 }

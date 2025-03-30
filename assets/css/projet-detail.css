@@ -1,25 +1,30 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Cambria&display=swap');
+
 /*=============== VARIABLES CSS ===============*/
 :root {
    --header-height: 4.5rem;
 
    /*========== Colors ==========*/
-   /*Color mode HSL(hue, saturation, lightness)*/
-   --black-color: hsl(0, 0%, 5%);
-   --black-color-light: hsl(0, 0%, 70%);
-   --white-color: hsl(0, 0%, 100%);
-   --title-color: hsl(0, 0%, 5%);
-   --text-color: hsl(0, 0%, 55%);
-   --body-color: hsl(0, 0%, 96%);
-   --vert-mini: #7fff00;
+   --black-color: #1E1E1E;
+   --black-color-light: #323232;
+   --white-color: #E1E1E1;
+   --title-color: #1E1E1E;
+   --text-color: #434343;
+   --body-color: #1E1E1E;
+   --vert-mini: #69FF0A;
+   --bleu-mini: #00FFD7;
+   --fuschia-mini: #C80CDF;
+   --violet-mini: #950CDF;
 
    /*========== Font and typography ==========*/
    /*.5rem = 8px | 1rem = 16px ...*/
-   --body-font: "Poppins", sans-serif;
-   --second-font: "Montserrat", sans-serif;
+   --body-font: "Cambria", serif;
+   --second-font: "JetBrains Mono", monospace;
    --biggest-font-size: 2.5rem;
    --h2-font-size: 1.25rem;
    --normal-font-size: .938rem;
-   --small-font-size: .875rem;
+   --small-font-size: .113rem;
 
    /*========== Font weight ==========*/
    --font-regular: 400;
@@ -52,6 +57,7 @@ body {
    font-size: var(--normal-font-size);
    background-color: var(--black-color);
    color: var(--white-color);
+   text-align: justify;
 }
 
 ul {
@@ -190,20 +196,24 @@ img {
 }
 
 .projet-detail__title {
-   font-size: var(--biggest-font-size);
-   color: var(--white-color);
-   margin-bottom: 1rem;
    font-family: var(--second-font);
+   font-size: var(--biggest-font-size);
+   margin-bottom: 1rem;
+   background: linear-gradient(to right, var(--bleu-mini) 0%, var(--vert-mini) 100%);
+   background-clip: text;
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
 }
 
 .projet-detail__subtitle {
+   font-family: var(--second-font);
    color: var(--vert-mini);
    font-size: var(--h2-font-size);
    margin-bottom: 2rem;
-   font-family: var(--second-font);
 }
 
 .projet-detail__description {
+   font-family: var(--body-font);
    font-size: var(--normal-font-size);
    line-height: 1.8;
    color: var(--white-color);
@@ -211,6 +221,7 @@ img {
    max-width: 800px;
    margin-left: auto;
    margin-right: auto;
+   text-align: justify;
 }
 
 .projet-detail__description ul {
@@ -259,11 +270,14 @@ img {
 }
 
 .projet-detail__tag {
+   display: inline-block;
    background-color: var(--vert-mini);
    color: var(--black-color);
    padding: 0.5rem 1rem;
    border-radius: 2rem;
    font-size: var(--small-font-size);
+   margin-right: 0.5rem;
+   margin-bottom: 0.5rem;
    font-weight: var(--font-bold);
 }
 
