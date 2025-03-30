@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-   <html lang="en">
+   <html lang="fr">
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
       <!--=============== FAVICON ===============-->
-      <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+      <link rel="shortcut icon" href="assets/img/Logo_MINITEL_full_blanc.png" type="image/x-icon">
 
       <!--=============== REMIXICONS ===============-->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin="">
@@ -16,14 +16,14 @@
       <!--=============== CSS ===============-->
       <link rel="stylesheet" href="assets/css/stylec.css">
 
-      <title>MINITEL </title>
+      <title>MINITEL - Contact</title>
    </head>
    <body>
       <!--==================== HEADER ====================-->
       <header class="header" id="header">
          <nav class="nav container">
             <a href="index.html" class="nav__logo">
-               <img src="assets/img/Logo_Mines_Blanc.png" alt="image">
+               <img src="assets/img/Logo_Mines_Blanc.png" alt="logo">
             </a>
 
             <div class="nav__menu" id="nav-menu">
@@ -66,35 +66,41 @@
          </nav>
       </header>
 
+      <!--==================== FORMULAIRE DE CONTACT ====================-->
+      <section class="order-form container">
+         <form class="order__form">
+            <div class="text">
+               <h2>CONTACT</h2>
+               <h2>MINITEL</h2>
+               <br>
+            </div>
+            <div class="form-group">
+               <label for="fullName">Nom et Prénom :</label>
+               <input type="text" id="fullName" name="name" required>
+            </div>
+       
+            <div class="form-group">
+               <label for="message">Message :</label>
+               <textarea id="message" name="message" rows="5" required></textarea>
+            </div>          
+       
+            <!-- Bouton de soumission -->
+            <button type="submit" class="btn">ENVOYER</button>
+         </form>
+      </section>
 
+      </main>
+
+      <!--=============== SCROLL UP ===============-->
+      <a href="#" class="scrollup" id="scroll-up">
+         <i class="fas fa-arrow-up"></i>
+      </a>
+
+      <!--=============== SCROLLREVEAL ===============-->
+      <script src="https://unpkg.com/scrollreveal"></script>
 
       <!--=============== MAIN JS ===============-->
-      <script src="assets/js/main.js"></script> 
-
-        <!--==================== FORMULAIRE DE COMMANDE ====================-->
-        <section class="order-form container">
-         <form action="#" method="POST" class="order__form">
-           <!-- Nom et Prénom -->
-           <div class="text">
-             <h2>CONTACT</h2>
-             <h2>MINITEL</h2>
-             <br>
-           </div>
-           <div class="form-group">
-             <label for="fullName">Nom et Prénom : </label>
-             <input type="text" id="fullName" name="1]Name" required>
-           </div>
-       
-           <div class="form-group">
-            <label for="apartmentNumber">Message :</label>
-            <input type="text" id="apartmentNumber" name="2.1]Adresse"  required>
-          
-          </div>          
-       
-           <!-- Bouton de soumission -->
-           <button type="submit" class="btn">ENVOYER</button>
-
-         </form>
-       </section>       
+      <script src="assets/js/main.js"></script>
+      <script src="assets/js/contact.js"></script>
    </body>
 </html>
