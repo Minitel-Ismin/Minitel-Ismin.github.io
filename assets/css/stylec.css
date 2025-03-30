@@ -52,6 +52,9 @@
 }
 
 body {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   background-color: var(--black-color);
@@ -376,4 +379,89 @@ button:hover {
   animation: glowing 20s linear infinite;
   opacity: 1;
   border-radius: 4rem;
+}
+
+/*=============== HALL OF FAME ===============*/
+.hall-of-fame {
+  padding: 6rem 0;
+}
+
+/* Section Partenariats */
+.partners-section {
+  margin-top: 4rem;
+}
+
+.partners__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.partner__card {
+  background: var(--black-color-light);
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.partner__card:hover {
+  transform: translateY(-5px);
+}
+
+.partner__img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 1.5rem;
+}
+
+.partner__title {
+  color: var(--white-color);
+  font-size: var(--h2-font-size);
+  margin-bottom: 1rem;
+}
+
+.partner__description {
+  color: var(--text-color);
+  font-size: var(--normal-font-size);
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .partners__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*=============== SCROLL UP ===============*/
+.scrollup {
+  position: fixed;
+  right: 1rem;
+  bottom: -30%;
+  background-color: var(--black-color);
+  opacity: .8;
+  padding: .5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-tooltip);
+  transition: .4s;
+  border-radius: .4rem;
+}
+
+.scrollup:hover {
+  background-color: var(--black-color-light);
+}
+
+.scrollup i {
+  font-size: 1.25rem;
+  color: var(--white-color);
+}
+
+/* Show scroll up */
+.show-scroll {
+  bottom: 3rem;
 }
