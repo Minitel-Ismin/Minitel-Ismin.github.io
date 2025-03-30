@@ -1,3 +1,32 @@
+// Menu de navigation mobile
+document.addEventListener('DOMContentLoaded', function() {
+    const navMenu = document.getElementById('nav-menu');
+    const navToggle = document.getElementById('nav-toggle');
+    const navClose = document.getElementById('nav-close');
+
+    // Afficher le menu
+    if(navToggle) {
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.add('show-menu');
+        });
+    }
+
+    // Cacher le menu
+    if(navClose) {
+        navClose.addEventListener('click', () => {
+            navMenu.classList.remove('show-menu');
+        });
+    }
+
+    // Fermer le menu quand on clique sur un lien
+    const navLinks = document.querySelectorAll('.nav__link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('show-menu');
+        });
+    });
+});
+
 // Sélectionnez toutes les diapositives de votre carrousel
 const slides = document.querySelectorAll('.carousel__slide');
 

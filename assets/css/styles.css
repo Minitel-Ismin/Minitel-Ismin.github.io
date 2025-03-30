@@ -50,6 +50,9 @@
 }
 
 body {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   background-color: var(--black-color);
@@ -123,7 +126,7 @@ img {
     width: 3.5rem;
   }
   .home__data {
-    margin-top: -3rem; /* Ajustez la valeur selon vos besoins */
+    margin-top: -3rem;
   }
   .home__container {
     grid-template-columns: 350px;
@@ -132,7 +135,6 @@ img {
   .home__data {
     text-align: center;
   }
-
 }
 
 .nav__list {
@@ -175,7 +177,6 @@ img {
   width: 100%;
 }
 
-
 /* Show menu */
 .show-menu {
   right: 0;
@@ -203,18 +204,17 @@ img {
 .home__subtitle {
   font-size: var(--h2-font-size);
   margin-bottom: .5rem;
-}
-
-.home__subtitle {
-  overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: .15em solid white; /* The typewriter cursor */
-  white-space: nowrap; /* Keeps the content on a single line */
-  margin: 0; /* Centering handled with transform */
-  letter-spacing: .15em; /* Adjust as needed */
+  color: var(--white-color);
+  font-family: var(--second-font);
+  display: inline-block;
+  overflow: hidden;
+  border-right: .15em solid var(--vert-mini);
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: .15em;
   animation: 
     typing 2.25s steps(40, end),
     blink-caret .5s step-end infinite;
-  transform-origin: left; /* Start typing from the left */
 }
 
 /* The typing effect */
@@ -226,10 +226,8 @@ img {
 /* The typewriter cursor effect */
 @keyframes blink-caret {
   from, to { border-color: transparent }
-  50% { border-color: #7fff00; }
+  50% { border-color: var(--vert-mini) }
 }
-
-
 
 .home__title {
   font-size: var(--biggest-font-size);
@@ -270,7 +268,7 @@ img {
   width: calc(100% + 4px);
   height: calc(100% + 4px);
   animation: glowing 20s linear infinite;
-  opacity: 1; /* Changer l'opacité à 1 pour que le glow soit toujours visible */
+  opacity: 1;
   border-radius: 4rem;
 }
 
@@ -279,7 +277,6 @@ img {
   50% { background-position: 400% 0; }
   100% { background-position: 0 0; }
 }
-
 
 .home__images {
   display: grid;
@@ -317,14 +314,6 @@ img {
 .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
   margin: 0 2px;
 }
-
-body {
-  max-width: 800px; /* Définir la largeur maximale de la page */
-  margin: 0 auto; /* Centrer la page horizontalement */
-  padding: 0 1.25rem;
-  font-family: 'Lato', sans-serif;
-}
-
 
 @keyframes tonext {
   75% {
@@ -373,7 +362,7 @@ body {
 
 * {
   box-sizing: border-box;
-  scrollbar-color: transparent transparent; /* thumb and track color */
+  scrollbar-color: transparent transparent;
   scrollbar-width: 0px;
 }
 
@@ -400,7 +389,6 @@ ol, li {
   padding: 0;
 }
 
-
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
 @media screen and (max-width: 320px) {
@@ -415,15 +403,19 @@ ol, li {
     font-size: 2rem;
   }
   .home__subtitle {
-    font-size: 0.8rem;
+    font-size: 1rem;
+    white-space: normal;
+    border-right: none;
+    animation: none;
   }
   .home__circle {
     width: 220px;
     height: 220px;
   }
   .home__container {
-    grid-template-columns: 230px;
+    grid-template-columns: 1fr;
     justify-content: center;
+    padding: 2rem 1rem;
   }
   .home__data {
     text-align: center;
@@ -439,23 +431,30 @@ ol, li {
     width: 40%;
   }
   .home__container {
-    grid-template-columns: 350px;
+    grid-template-columns: 1fr;
     justify-content: center;
+    padding: 3rem 1rem;
   }
   .home__data {
     text-align: center;
   }
-  
+  .home__subtitle {
+    font-size: 1.25rem;
+    white-space: nowrap;
+    border-right: .15em solid var(--vert-mini);
+    animation: 
+      typing 2.25s steps(40, end),
+      blink-caret .5s step-end infinite;
+  }
 }
 
 @media screen and (min-width: 576px) and (max-width: 1024px) {
   .nav__logo img {
-    width: 3.5rem; /* Ajustez la largeur selon vos besoins */
+    width: 3.5rem;
   }
   .home__shoe {
     width: 800px;
   }
-  
 }
 
 /* For large devices */
@@ -484,7 +483,6 @@ ol, li {
   .home__data {
     text-align: initial;
   }
-  
 }
 
 @media screen and (min-width: 1152px) {
@@ -511,7 +509,6 @@ ol, li {
     width: 500px;
     height: 500px;
   }
-  
 }
 
 /*=============== MAIN ===============*/

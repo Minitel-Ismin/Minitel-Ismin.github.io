@@ -295,9 +295,8 @@ label {
   margin-top: 15px;
 }
 
-input, select {
+input, textarea {
   width: 100%;
-  height: 40px;
   padding: 0.75rem;
   border: none;
   border-bottom: 1.5px solid white;
@@ -305,7 +304,17 @@ input, select {
   outline: 0;
   background: transparent;
   font-size: var(--normal-font-size);
-  color: var(--white-color); /* Couleur du texte pour les champs de saisie */
+  color: var(--white-color);
+}
+
+input {
+  height: 40px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+  font-family: var(--body-font);
 }
 
 button {
