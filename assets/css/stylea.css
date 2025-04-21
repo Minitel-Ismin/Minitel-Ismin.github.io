@@ -382,7 +382,7 @@ img {
   }
   
   .about__description {
-    font-size: var(--small-font-size);
+    font-size: var(--normal-font-size);
   }
 }
 
