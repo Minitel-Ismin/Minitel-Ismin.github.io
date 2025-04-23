@@ -125,16 +125,6 @@ img {
   .nav__logo img {
     width: 3.5rem;
   }
-  .home__data {
-    margin-top: -3rem; /* Ajustez la valeur selon vos besoins */
-  }
-  .home__container {
-    grid-template-columns: 350px;
-    justify-content: center;
-  }
-  .home__data {
-    text-align: center;
-  }
 
 }
 

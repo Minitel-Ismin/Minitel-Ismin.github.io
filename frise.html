@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/img/Logo_MINITEL_full_blanc.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin="">
+    <link rel="stylesheet" href="assets/css/frise.css">
+    <title>MINITEL - Frise Historique</title>
+</head>
+<body>
+    <!--==================== HEADER ====================-->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo">
+                <img src="assets/img/Logo_Mines_Blanc.png" alt="image">
+            </a>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">ACCUEIL</a></li>
+                    <li class="nav__item"><a href="apropos.html" class="nav__link">A PROPOS</a></li>
+                    <li class="nav__item"><a href="mandat.html" class="nav__link">MANDAT</a></li>
+                    <li class="nav__item"><a href="projets.html" class="nav__link">PROJETS</a></li>
+                    <li class="nav__item"><a href="photo.html" class="nav__link">HALL OF FAME</a></li>
+                    <li class="nav__item"><a href="https://minitel.wiki/" class="nav__link">WIKI</a></li>
+                    <li class="nav__item"><a href="frise.html" class="nav__link">HISTORIQUE</a></li>
+                    <li class="nav__item"><a href="contact.html" class="nav__link">CONTACT</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="main">
+        <section class="frise section">
+            <div class="container">
+                <div class="frise-banner">
+                    <div class="frise-banner__subtitle">FRISE HISTORIQUE</div>
+                    <div class="frise-banner__title">MINITEL</div>
+                </div>
+                <div class="timeline timeline--modern">
+                    <!-- Événement 1 -->
+                    <div class="timeline-step timeline-step--left">
+                        <div class="timeline-dot timeline-dot--green"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-img">
+                                <img src="assets/img/Logo_Mines_Blanc.png" alt="Mandat Alpha">
+                            </div>
+                            <div class="timeline-date">2024-2025</div>
+                            <div class="timeline-title">Mandat prout1</div>
+                            <div class="timeline-desc">Blablabla</div>
+                        </div>
+                    </div>
+                    <!-- Événement 2 -->
+                    <div class="timeline-step timeline-step--right">
+                        <div class="timeline-dot timeline-dot--blue"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-img">
+                                <img src="assets/img/Logo_MINITEL_full_blanc.png" alt="Mandat Beta">
+                            </div>
+                            <div class="timeline-date">2023-2024</div>
+                            <div class="timeline-title">Mandat Zizi</div>
+                            <div class="timeline-desc">Blablablabis</div>
+                        </div>
+                    </div>
+                    <!-- Événement 3 -->
+                    <div class="timeline-step timeline-step--left">
+                        <div class="timeline-dot timeline-dot--fuschia"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-img">
+                                <img src="assets/img/Logo_Mines_Blanc.png" alt="Mandat Gamma">
+                            </div>
+                            <div class="timeline-date">2022-2023</div>
+                            <div class="timeline-title">Mandat Caca</div>
+                            <div class="timeline-desc">Blablabouze</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+      ScrollReveal().reveal('.timeline-step', { interval: 200, origin: 'bottom', distance: '50px', duration: 800, opacity: 0 });
+    </script>
+</body>
+</html>
