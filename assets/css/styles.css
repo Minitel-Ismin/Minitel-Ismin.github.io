@@ -44,15 +44,16 @@
 }
 
 body {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 1.25rem;
+  max-width: 1400px;       /* Largeur maximale */
+  margin: 0 auto;         /* Centrage horizontal */
+  padding: 0 1.25rem;     /* Espacement horizontal */
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   background-color: var(--black-color);
   color: var(--white-color);
-  text-align: justify;
+  text-align: justify;    /* Texte justifié */
 }
+
 
 ul {
   list-style: none;
@@ -361,6 +362,15 @@ img {
   .home__shoe {
     width: 160px;
   }
+  :root{
+    --header-height: 4.5rem;
+  }
+  .container {
+    margin-inline: 1rem;
+  }
+  .nav__menu {
+    width: 70%;
+  }
 }
 
 /* Medium devices (tablette) */
@@ -385,6 +395,9 @@ img {
 
   .home__shoe {
     width: 200px;
+  }
+  .nav__menu {
+    width: 40%;
   }
 }
 
@@ -417,6 +430,10 @@ img {
 
   .home__data {
     text-align: center;
+  }
+  
+  .container {
+    margin-inline: auto;
   }
 }
 

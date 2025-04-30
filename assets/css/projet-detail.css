@@ -1,181 +1,243 @@
 /*=============== GOOGLE FONTS ===============*/
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Cambria&display=swap');
-
 /*=============== VARIABLES CSS ===============*/
 :root {
-   --header-height: 4.5rem;
+  --header-height: 4.5rem;
 
-   /*========== Colors ==========*/
-   --black-color: #1E1E1E;
-   --black-color-light: #323232;
-   --white-color: #E1E1E1;
-   --title-color: #1E1E1E;
-   --text-color: #434343;
-   --body-color: #1E1E1E;
-   --vert-mini: #69FF0A;
-   --bleu-mini: #00FFD7;
-   --fuschia-mini: #C80CDF;
-   --violet-mini: #950CDF;
+  /*========== Colors ==========*/
+  --black-color: #1E1E1E;
+  --black-color-light: #323232;
+  --white-color: #E1E1E1;
+  --title-color: #1E1E1E;
+  --text-color: #434343;
+  --body-color: #1E1E1E;
+  --vert-mini: #69FF0A;
+  --bleu-mini: #00FFD7;
+  --fuschia-mini: #C80CDF;
+  --violet-mini: #950CDF;
 
-   /*========== Font and typography ==========*/
-   /*.5rem = 8px | 1rem = 16px ...*/
-   --body-font: "Cambria", serif;
-   --second-font: "JetBrains Mono", monospace;
-   --biggest-font-size: 2.5rem;
-   --h2-font-size: 1.25rem;
-   --normal-font-size: .938rem;
-   --small-font-size: .113rem;
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Cambria", serif;
+  --second-font: "JetBrains Mono", monospace;
+  --biggest-font-size: 2.5rem;
+  --h2-font-size: 1.25rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .113rem;
 
-   /*========== Font weight ==========*/
-   --font-regular: 400;
-   --font-bold: 700;
+  /*========== Font weight ==========*/
+  --font-regular: 400;
+  --font-bold: 700;
 
-   /*========== z index ==========*/
-   --z-tooltip: 10;
-   --z-fixed: 100;
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
 }
 
 /*========== Responsive typography ==========*/
 @media screen and (min-width: 1152px) {
-   :root {
-      --biggest-font-size: 4.5rem;
-      --h2-font-size: 1.5rem;
-      --normal-font-size: 1rem;
-      --small-font-size: .875rem;
-   }
+  :root {
+    --biggest-font-size: 4.5rem;
+    --h2-font-size: 1.5rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+  }
 }
 
 /*=============== BASE ===============*/
 * {
-   box-sizing: border-box;
-   padding: 0;
-   margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 body {
-   font-family: var(--body-font);
-   font-size: var(--normal-font-size);
-   background-color: var(--black-color);
-   color: var(--white-color);
-   text-align: justify;
+  max-width: 1400px;       /* Largeur maximale */
+  margin: 0 auto;         /* Centrage horizontal */
+  padding: 0 1.25rem;     /* Espacement horizontal */
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--black-color);
+  color: var(--white-color);
+  text-align: justify;    /* Texte justifié */
 }
 
 ul {
-   list-style: none;
+  list-style: none;
 }
 
 a {
-   text-decoration: none;
+  text-decoration: none;
 }
 
 img {
-   display: block;
-   max-width: 100%;
-   height: auto;
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 /*=============== REUSABLE CSS CLASSES ===============*/
 .container {
-   max-width: 1120px;
-   margin-inline: 1.5rem;
+  max-width: 1120px;
+  margin-inline: 1.5rem;
 }
 
 /*=============== HEADER & NAV ===============*/
 .header {
-   position: fixed;
-   width: 100%;
-   top: 0;
-   left: 0;
-   background-color: var(--black-color);
-   z-index: var(--z-fixed);
-   transition: box-shadow .4s;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--black-color);
+  z-index: var(--z-fixed);
+  transition: box-shadow .4s;
 }
 
 .nav {
-   height: var(--header-height);
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .nav__logo img {
-   width: 4rem;
+  width: 4rem;
 }
 
 .nav__toggle, 
 .nav__close {
-   display: flex;
-   font-size: 1.25rem;
-   color: var(--white-color);
-   cursor: pointer;
+  display: flex;
+  font-size: 1.25rem;
+  color: var(--white-color);
+  cursor: pointer;
 }
 
 /* Navigation for mobile devices */
 @media screen and (max-width: 1023px) {
-   .nav__menu {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      background-color: var(--black-color);
-      box-shadow: -1px 0 16px hsla(0, 0%, 0%, .1);
-      width: 80%;
-      height: 100%;
-      padding: 6rem 3rem;
-      transition: right .4s;
-   }
-   .nav__logo img {
-      width: 3.5rem;
-   }
+  .nav__menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    background-color: var(--black-color);
+    box-shadow: -1px 0 16px hsla(0, 0%, 0%, .1);
+    width: 80%;
+    height: 100%;
+    padding: 6rem 3rem;
+    transition: right .4s;
+  }
+  .nav__logo img {
+    width: 3.5rem;
+  }
+
 }
 
 .nav__list {
-   display: flex;
-   flex-direction: column;
-   row-gap: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.5rem;
 }
 
 .nav__link {
-   color: var(--white-color);
-   font-family: var(--second-font);
+  color: var(--white-color);
+  font-family: var(--second-font);
 }
 
 .nav__close {
-   position: absolute;
-   top: 1.125rem;
-   right: 1.5rem;
+  position: absolute;
+  top: 1.125rem;
+  right: 1.5rem;
 }
 
 .nav__link:hover {
-   color: var(--vert-mini);
+  color: var(--vert-mini);
 }
 
 .nav__link {
-   position: relative;
+  position: relative;
 }
 
 .nav__link::after {
-   content: '';
-   position: absolute;
-   bottom: -3px;
-   left: 0;
-   width: 0;
-   height: 2px;
-   background-color: var(--vert-mini);
-   transition: width 0.3s ease;
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--vert-mini);
+  transition: width 0.3s ease;
 }
 
 .nav__link:hover::after {
-   width: 100%;
+  width: 100%;
 }
+
 
 /* Show menu */
 .show-menu {
-   right: 0;
+  right: 0;
 }
 
 /* Add shadow header */
 .shadow-header {
-   box-shadow: 0 1px 16px hsla(0, 0%, 0%, .1);
+  box-shadow: 0 1px 16px hsla(0, 0%, 0%, .1);
+}
+
+
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width: 320px) {
+  :root{
+    --header-height: 4.5rem;
+  }
+  .container {
+    margin-inline: 1rem;
+  }
+  .nav__menu {
+    width: 70%;
+  }
+}
+
+/* For medium devices */
+@media screen and (min-width: 576px) {
+  .nav__menu {
+    width: 40%;
+  }
+}
+
+@media screen and (min-width: 576px) and (max-width: 1024px) {
+  .nav__logo img {
+    width: 4.5rem; /* Ajustez la largeur selon vos besoins */
+  }
+}
+
+/* For large devices */
+@media screen and (min-width: 1023px) {
+  .nav {
+    height: calc(var(--header-height) + 2rem);
+  }
+  .nav__toggle, 
+  .nav__close {
+    display: none;
+  }
+  .nav__menu {
+    width: initial;
+  }
+  .nav__list {
+    flex-direction: row;
+    column-gap: 4rem;
+  }
+}
+
+@media screen and (min-width: 1152px) {
+  .container {
+    margin-inline: auto;
+  }
+}
+
+/*=============== MAIN ===============*/
+.main {
+  padding-top: var(--header-height);
 }
 
 /*=============== PROJET DETAIL ===============*/

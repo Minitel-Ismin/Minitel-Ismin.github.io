@@ -89,7 +89,9 @@ img {
   max-width: 100%;        /* Largeur maximale */
   height: auto;           /* Hauteur automatique */
 }
-
+.main {
+  padding-top: var(--header-height);
+}
 /*=============== REUSABLE CSS CLASSES ===============*/
 .container {
   max-width: 1120px;      /* Largeur maximale */

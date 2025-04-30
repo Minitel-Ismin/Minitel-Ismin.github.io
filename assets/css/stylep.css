@@ -52,11 +52,14 @@
 }
 
 body {
+  max-width: 1400px;       /* Largeur maximale */
+  margin: 0 auto;         /* Centrage horizontal */
+  padding: 0 1.25rem;     /* Espacement horizontal */
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   background-color: var(--black-color);
   color: var(--white-color);
-  text-align: justify;
+  text-align: justify;    /* Texte justifié */
 }
 
 ul {
@@ -122,6 +125,10 @@ img {
     padding: 6rem 3rem;
     transition: right .4s;
   }
+  .nav__logo img {
+    width: 3.5rem;
+  }
+
 }
 
 .nav__list {
@@ -164,6 +171,7 @@ img {
   width: 100%;
 }
 
+
 /* Show menu */
 .show-menu {
   right: 0;
@@ -172,6 +180,59 @@ img {
 /* Add shadow header */
 .shadow-header {
   box-shadow: 0 1px 16px hsla(0, 0%, 0%, .1);
+}
+
+
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width: 320px) {
+  :root{
+    --header-height: 4.5rem;
+  }
+  .container {
+    margin-inline: 1rem;
+  }
+  .nav__menu {
+    width: 70%;
+  }
+}
+
+/* For medium devices */
+@media screen and (min-width: 576px) {
+  .nav__menu {
+    width: 40%;
+  }
+}
+
+@media screen and (min-width: 576px) and (max-width: 1024px) {
+  .nav__logo img {
+    width: 4.5rem; /* Ajustez la largeur selon vos besoins */
+  }
+}
+
+/* For large devices */
+@media screen and (min-width: 1023px) {
+  .nav {
+    height: calc(var(--header-height) + 2rem);
+  }
+  .nav__toggle, 
+  .nav__close {
+    display: none;
+  }
+  .nav__menu {
+    width: initial;
+  }
+  .nav__list {
+    flex-direction: row;
+    column-gap: 4rem;
+  }
+}
+
+@media screen and (min-width: 1152px) {
+  .container {
+    margin-inline: auto;
+  }
 }
 
 /*=============== MAIN ===============*/
@@ -392,60 +453,3 @@ img {
   }
 }
 
-/*=============== BREAKPOINTS ===============*/
-/* For small devices */
-@media screen and (max-width: 320px) {
-  :root{
-    --header-height: 4.5rem;
-  }
-  .container {
-    margin-inline: 1rem;
-  }
-  .nav__menu {
-    width: 70%;
-  }
-}
-
-/* For medium devices */
-@media screen and (min-width: 576px) {
-  .nav__menu {
-    width: 40%;
-  }
-}
-
-@media screen and (min-width: 576px) and (max-width: 1024px) {
-  .nav__logo img {
-    width: 4.5rem; /* Ajustez la largeur selon vos besoins */
-  }
-}
-
-/* For large devices */
-@media screen and (min-width: 1023px) {
-  .nav {
-    height: calc(var(--header-height) + 2rem);
-  }
-  .nav__toggle, 
-  .nav__close {
-    display: none;
-  }
-  .nav__menu {
-    width: initial;
-  }
-  .nav__list {
-    flex-direction: row;
-    column-gap: 4rem;
-  }
-
-
-}
-
-@media screen and (min-width: 1152px) {
-  .container {
-    margin-inline: auto;
-  }
-
-  .home__container {
-    grid-template-columns: 430px 600px;
-    column-gap: 4.5rem;
-  }
-}
