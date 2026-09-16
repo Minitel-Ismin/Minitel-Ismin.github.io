@@ -47,7 +47,7 @@
   margin-bottom: 3rem;
 }
 
-/*========== MEMBER CARDS & NEON HOVER EFFECTS ==========*/
+/*========== MEMBER CARDS & GRADIENT HOVER EFFECTS ==========*/
 .member-card {
   background: var(--black-color-light);
   border-radius: 1rem;
@@ -60,28 +60,27 @@
 
 .member-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 0 20px var(--vert-mini), 0 0 40px var(--bleu-mini);
+  box-shadow: 0 16px 48px hsla(0, 0%, 0%, 0.2);
 }
 
 .member-card::before {
   content: '';
   position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: linear-gradient(135deg, 
     var(--vert-mini) 0%, 
     var(--bleu-mini) 50%, 
     var(--fuschia-mini) 100%);
-  border-radius: inherit;
   opacity: 0;
   transition: opacity 0.3s ease;
   z-index: 1;
 }
 
 .member-card:hover::before {
-  opacity: 0.3;
+  opacity: 0.15;
 }
 
 /*========== MEMBER CARD BACKGROUND ==========*/
@@ -144,6 +143,22 @@
 .mandate-accordion summary {
   list-style: none;
   cursor: pointer;
+}
+
+.mandate-accordion__summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.mandate-accordion__subtitle {
+  font-size: 1rem;
+  font-weight: var(--font-regular);
+  color: var(--text-color-light);
+  margin-top: 0.5rem;
+  text-transform: none;
+  -webkit-text-fill-color: var(--text-color-light);
 }
 
 .mandate-year {
