@@ -1,0 +1,190 @@
+/* Fenêtre de code : d'après Uiverse.io par reshades (licence MIT),
+   adaptée au site (carte cliquable, numéros de ligne, barre d'état, titre lisible). */
+
+.fenetre {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  background: #121212;
+  border: 1px solid #212121;
+  border-radius: 10px;
+  transition:
+    border-color 300ms,
+    transform 300ms var(--ease-out-soft);
+}
+.fenetre:hover {
+  border-color: rgb(105 255 10 / 0.45);
+  transform: translateY(-2px);
+}
+.fenetre:active {
+  transform: translateY(0);
+}
+
+/* Barre de titre : nom du fichier à gauche, boutons de fenêtre à droite. */
+.barre {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #313131;
+}
+
+.fichier {
+  overflow: hidden;
+  padding-inline: 0.85rem;
+  color: #e8e8e8;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.boutons {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.bouton {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 35px;
+  transition: background-color 0.2s;
+}
+.bouton:hover {
+  background-color: #ffffff10;
+}
+.bouton svg {
+  width: 10px;
+  height: 10px;
+  fill: #ffffff;
+}
+
+/* Corps : lignes numérotées, retrait suspendu pour les chaînes qui passent à la ligne. */
+.code {
+  flex: 1;
+  counter-reset: ligne;
+  padding: 1rem 1.1rem 1.25rem 0.6rem;
+  color: #8e8e8e;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  line-height: 1.75;
+}
+.code > li {
+  display: grid;
+  grid-template-columns: 2ch 1fr;
+  column-gap: 1.2ch;
+  counter-increment: ligne;
+}
+.code > li::before {
+  content: counter(ligne);
+  color: #4a4a4a;
+  text-align: right;
+  user-select: none;
+}
+
+.retrait {
+  padding-left: 2ch;
+}
+
+.c1 {
+  color: rgb(55, 91, 158);
+}
+.c2 {
+  color: rgb(55, 158, 150);
+}
+.c3 {
+  color: rgb(158, 151, 55);
+}
+.c4 {
+  color: rgb(88, 158, 55);
+}
+.commentaire {
+  opacity: 50%;
+}
+
+/* Le nom de l'événement doit se lire d'un coup d'œil : grand, clair, en sans-serif. */
+.titre {
+  display: inline;
+  color: #e8e8e8;
+  font-family: var(--font-sans);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.35;
+}
+
+/* Barre d'état en pied de fenêtre. */
+.etat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.55rem 0.85rem;
+  border-top: 1px solid #212121;
+  color: #8e8e8e;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+}
+
+.enCours {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgb(88, 158, 55);
+}
+.enCours::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-phosphor);
+  box-shadow: 0 0 6px var(--color-phosphor);
+}
+
+.ouvrir {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: color 300ms;
+}
+.ouvrir svg {
+  transition: transform 300ms var(--ease-out-soft);
+}
+.fenetre:hover .ouvrir {
+  color: var(--color-phosphor);
+}
+.fenetre:hover .ouvrir svg {
+  transform: translateX(3px);
+}
+
+/* Variante terminal (carte « tous les projets »). */
+.terminal > li {
+  display: block;
+}
+.terminal > li::before {
+  content: none;
+}
+.invite {
+  color: rgb(88, 158, 55);
+  user-select: none;
+}
+.curseur {
+  display: inline-block;
+  width: 0.55em;
+  height: 1.05em;
+  margin-left: 0.25em;
+  vertical-align: -0.15em;
+  background: var(--color-phosphor);
+  animation: var(--animate-blink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fenetre,
+  .ouvrir svg {
+    transition: none;
+  }
+  .curseur {
+    animation: none;
+  }
+}

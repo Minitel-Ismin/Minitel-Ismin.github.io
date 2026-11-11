@@ -1,0 +1,242 @@
+/* Frise des mandats : fil qui se remplit au défilement, étapes en zigzag qui apparaissent.
+   Mobile : fil à gauche, tout empilé à droite. Desktop (lg) : fil central, cartes alternées. */
+
+.frise {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding-left: 2.25rem;
+}
+
+/* --- Fil --- */
+.fil {
+  --progression: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 7px;
+  width: 2px;
+}
+.piste,
+.remplissage {
+  position: absolute;
+  inset: 0;
+  border-radius: 2px;
+}
+.piste {
+  background: var(--color-line-strong);
+}
+.remplissage {
+  background: linear-gradient(to bottom, var(--color-phosphor), rgb(105 255 10 / 0.4));
+  box-shadow: 0 0 12px rgb(105 255 10 / 0.6);
+  transform: scaleY(var(--progression));
+  transform-origin: top;
+}
+
+/* --- Étapes --- */
+.etape {
+  --dx: 2rem;
+  position: relative;
+}
+
+.point {
+  position: absolute;
+  top: 1.9rem;
+  left: calc(8px - 2.25rem);
+  width: 13px;
+  height: 13px;
+  translate: -50% 0;
+  border: 2px solid var(--color-line-strong);
+  border-radius: 50%;
+  background: var(--color-ink);
+  transition:
+    scale 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background-color 0.4s,
+    border-color 0.4s,
+    box-shadow 0.4s;
+}
+.etape[data-visible] .point {
+  border-color: var(--color-phosphor);
+  background: var(--color-phosphor);
+  box-shadow: 0 0 12px var(--color-phosphor);
+}
+
+/* Carte d'un mandat documenté : verre sombre pour rester lisible sur l'arc-en-ciel. */
+.carte {
+  position: relative;
+  padding: 1.5rem;
+  border: 1px solid var(--color-line-strong);
+  border-radius: 1.25rem;
+  background: rgb(15 17 15 / 0.72);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 24px 60px -30px rgb(0 0 0 / 0.9);
+}
+.carteActive {
+  border-color: rgb(105 255 10 / 0.45);
+  box-shadow:
+    0 0 0 1px rgb(105 255 10 / 0.15),
+    0 0 40px -12px rgb(105 255 10 / 0.45);
+}
+
+.fait {
+  display: flex;
+  gap: 0.75rem;
+  padding-block: 0.75rem;
+  border-bottom: 1px solid var(--color-line);
+}
+.fait:first-child {
+  padding-top: 0;
+}
+.fait:last-child {
+  border-bottom: 0;
+}
+
+.photo {
+  overflow: hidden;
+  border: 1px solid var(--color-line);
+  border-radius: 0.75rem;
+}
+.photo img {
+  filter: grayscale(35%);
+  transition:
+    filter 0.5s,
+    transform 1.2s var(--ease-out-soft);
+}
+.photo:hover img {
+  filter: grayscale(0);
+}
+
+/* Année géante en creux, dans la moitié vide en face de la carte (desktop seulement). */
+.geant {
+  display: none;
+  color: transparent;
+  font-family: var(--font-mono);
+  font-size: clamp(5rem, 9vw, 8.5rem);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  -webkit-text-stroke: 1.5px rgb(231 235 228 / 0.22);
+  user-select: none;
+}
+
+/* Mandat sans souvenirs : simple pastille posée sur le fil. */
+.pastille {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.45rem 1rem;
+  border: 1px solid var(--color-line-strong);
+  border-radius: 999px;
+  background: rgb(15 17 15 / 0.85);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+.courte .point {
+  top: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .carte {
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .frise {
+    gap: 3.5rem;
+    padding-left: 0;
+  }
+  .fil {
+    left: calc(50% - 1px);
+  }
+  .etape {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 5.5rem;
+    align-items: center;
+  }
+  .point {
+    left: 50%;
+  }
+  .geant {
+    display: block;
+  }
+
+  .gauche {
+    --dx: -4rem;
+  }
+  .gauche .carte {
+    grid-area: 1 / 1;
+  }
+  .gauche .geant {
+    grid-area: 1 / 2;
+  }
+  .droite {
+    --dx: 4rem;
+  }
+  .droite .carte {
+    grid-area: 1 / 2;
+  }
+  .droite .geant {
+    grid-area: 1 / 1;
+    text-align: right;
+  }
+
+  /* Les pastilles et la création se centrent sur le fil, qui passe derrière. */
+  .courte,
+  .centree {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  .courte .point,
+  .centree .point {
+    display: none;
+  }
+}
+
+/* --- Apparition au défilement ---
+   Uniquement si le JS tourne (sinon tout reste visible) et si le mouvement est accepté. */
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+  .carte,
+  .geant,
+  .pastille,
+  .fait {
+    transition:
+      opacity 0.8s var(--ease-out-soft),
+      transform 0.8s var(--ease-out-soft);
+  }
+  .fait {
+    transition-delay: calc(250ms + var(--i, 0) * 90ms);
+  }
+  .geant {
+    transition-duration: 1.2s;
+    transition-delay: 150ms;
+  }
+
+  .etape:not([data-visible]) .point {
+    scale: 0;
+  }
+  .etape:not([data-visible]) .carte {
+    opacity: 0;
+    transform: translateX(var(--dx));
+  }
+  .etape:not([data-visible]) .geant {
+    opacity: 0;
+    transform: translateX(calc(var(--dx) * -1.5));
+  }
+  .etape:not([data-visible]) .pastille {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  .etape:not([data-visible]) .fait {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+  .etape:not([data-visible]) .photo img {
+    transform: scale(1.12);
+  }
+}

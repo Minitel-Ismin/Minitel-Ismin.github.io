@@ -1,0 +1,326 @@
+/* Astronaute et pluie d'étoiles : d'après Uiverse.io par JkHuger (licence MIT),
+   adapté au site (conteneur borné, dégradés standard, mouvement réduit). */
+
+.ciel {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  height: 24rem;
+  border: 1px solid var(--color-line);
+  border-radius: 1.5rem;
+  background:
+    radial-gradient(70% 60% at 30% 25%, rgb(105 255 10 / 0.12), transparent 70%),
+    radial-gradient(60% 50% at 80% 85%, rgb(0 255 215 / 0.08), transparent 70%),
+    #090b09;
+}
+
+@media (min-width: 640px) {
+  .ciel {
+    height: 28rem;
+  }
+}
+
+@keyframes neige {
+  0% {
+    opacity: 0;
+    transform: translateY(0px);
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(650px);
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.etoiles1,
+.etoiles2,
+.etoiles3,
+.etoiles4 {
+  width: 100%;
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  top: -200px;
+  transform: translateY(0px);
+  height: 700px;
+}
+
+.etoiles1 {
+  animation: neige 5s linear infinite;
+}
+.etoiles2 {
+  animation: neige 5s -1.64s linear infinite;
+}
+.etoiles3 {
+  animation: neige 5s -2.3s linear infinite;
+}
+.etoiles4 {
+  animation: neige 5s -3.3s linear infinite;
+}
+
+.etoile {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+  z-index: 10;
+  opacity: 0.7;
+}
+
+.etoile::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+  z-index: 10;
+  top: 80px;
+  left: 70px;
+  opacity: 0.7;
+}
+
+.etoile::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+  z-index: 10;
+  top: 8px;
+  left: 170px;
+  opacity: 0.9;
+}
+
+.position1 { top: 30px; left: 20px; }
+.position2 { top: 110px; left: 250px; }
+.position3 { top: 60px; left: 570px; }
+.position4 { top: 120px; left: 900px; }
+.position5 { top: 20px; left: 1120px; }
+.position6 { top: 90px; left: 1280px; }
+.position7 { top: 30px; left: 1480px; }
+
+.astronaute {
+  width: 250px;
+  height: 300px;
+  position: absolute;
+  z-index: 11;
+  top: calc(50% - 150px);
+  left: calc(50% - 125px);
+  animation: rotation 5s linear infinite;
+}
+
+.sac {
+  width: 100px;
+  height: 150px;
+  position: absolute;
+  z-index: 1;
+  top: calc(50% - 75px);
+  left: calc(50% - 50px);
+  background-color: #94b7ca;
+  border-radius: 50px 50px 0 0 / 30px 30px 0 0;
+}
+
+.tete {
+  width: 97px;
+  height: 80px;
+  position: absolute;
+  z-index: 3;
+  background: linear-gradient(to right, #e3e8eb 0%, #e3e8eb 50%, #fbfdfa 50%, #fbfdfa 100%);
+  border-radius: 50%;
+  top: 34px;
+  left: calc(50% - 47.5px);
+}
+
+.tete::after {
+  content: "";
+  width: 60px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 30px);
+  background: linear-gradient(to bottom, #15aece 0%, #15aece 50%, #0391bf 50%, #0391bf 100%);
+  border-radius: 15px;
+}
+
+.tete::before {
+  content: "";
+  width: 12px;
+  height: 25px;
+  position: absolute;
+  top: calc(50% - 12.5px);
+  left: -4px;
+  background-color: #618095;
+  border-radius: 5px;
+  box-shadow: 92px 0px 0px #618095;
+}
+
+.corps {
+  width: 85px;
+  height: 100px;
+  position: absolute;
+  z-index: 2;
+  border-radius: 40px / 20px;
+  top: 105px;
+  left: calc(50% - 41px);
+  background: linear-gradient(to right, #e3e8eb 0%, #e3e8eb 50%, #fbfdfa 50%, #fbfdfa 100%);
+}
+
+.panneau {
+  width: 60px;
+  height: 40px;
+  position: absolute;
+  top: 20px;
+  left: calc(50% - 30px);
+  background-color: #b7cceb;
+}
+
+.panneau::before {
+  content: "";
+  width: 30px;
+  height: 5px;
+  position: absolute;
+  top: 9px;
+  left: 7px;
+  background-color: #fbfdfa;
+  box-shadow: 0px 9px 0px #fbfdfa, 0px 18px 0px #fbfdfa;
+}
+
+.panneau::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  top: 9px;
+  right: 7px;
+  background-color: #fbfdfa;
+  border-radius: 50%;
+  box-shadow: 0px 14px 0px 2px #fbfdfa;
+}
+
+.bras {
+  width: 80px;
+  height: 30px;
+  position: absolute;
+  top: 121px;
+  z-index: 2;
+}
+
+.brasGauche {
+  left: 30px;
+  background-color: #e3e8eb;
+  border-radius: 0 0 0 39px;
+}
+
+.brasDroit {
+  right: 30px;
+  background-color: #fbfdfa;
+  border-radius: 0 0 39px 0;
+}
+
+.brasGauche::before,
+.brasDroit::before {
+  content: "";
+  width: 30px;
+  height: 70px;
+  position: absolute;
+  top: -40px;
+}
+
+.brasGauche::before {
+  border-radius: 50px 50px 0px 120px / 50px 50px 0 110px;
+  left: 0;
+  background-color: #e3e8eb;
+}
+
+.brasDroit::before {
+  border-radius: 50px 50px 120px 0 / 50px 50px 110px 0;
+  right: 0;
+  background-color: #fbfdfa;
+}
+
+.brasGauche::after,
+.brasDroit::after {
+  content: "";
+  width: 30px;
+  height: 10px;
+  position: absolute;
+  top: -24px;
+}
+
+.brasGauche::after {
+  background-color: #6e91a4;
+  left: 0;
+}
+
+.brasDroit::after {
+  right: 0;
+  background-color: #b6d2e0;
+}
+
+.jambe {
+  width: 30px;
+  height: 40px;
+  position: absolute;
+  z-index: 2;
+  bottom: 70px;
+}
+
+.jambeGauche {
+  left: 76px;
+  background-color: #e3e8eb;
+  transform: rotate(20deg);
+}
+
+.jambeDroite {
+  right: 73px;
+  background-color: #fbfdfa;
+  transform: rotate(-20deg);
+}
+
+.jambeGauche::before,
+.jambeDroite::before {
+  content: "";
+  width: 50px;
+  height: 25px;
+  position: absolute;
+  bottom: -26px;
+}
+
+.jambeGauche::before {
+  left: -20px;
+  background-color: #e3e8eb;
+  border-radius: 30px 0 0 0;
+  border-bottom: 10px solid #6d96ac;
+}
+
+.jambeDroite::before {
+  right: -20px;
+  background-color: #fbfdfa;
+  border-radius: 0 30px 0 0;
+  border-bottom: 10px solid #b0cfe4;
+}
+
+/* Sans animation (préférence système) : astronaute immobile, étoiles fixes. */
+@media (prefers-reduced-motion: reduce) {
+  .etoiles1,
+  .etoiles2,
+  .etoiles3,
+  .etoiles4,
+  .astronaute {
+    animation: none;
+  }
+}

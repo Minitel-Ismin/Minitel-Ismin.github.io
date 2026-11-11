@@ -1,0 +1,19 @@
+/* Arc-en-ciel cathodique : d'après Uiverse.io par SelfMadeSystem (licence MIT),
+   adapté au site (fond fixe derrière la page, couleurs atténuées pour garder le texte lisible). */
+
+.fond {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(#000 1px, #0000 0),
+    linear-gradient(90deg, #000, #0000, #000),
+    linear-gradient(in oklch longer hue -2deg, #a00, #a00);
+  background-size:
+    100% 2px,
+    100% 100%,
+    100% 100%;
+  /* Couleurs atténuées : moins saturées et plus sombres que l'original. */
+  filter: saturate(0.8) brightness(0.9);
+}
