@@ -1,0 +1,43 @@
+/* Conteneur fixe de la scène : l'overflow coupe ce qui dépasse sous l'écran (voir fond-spline.tsx). */
+.fond {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background: #000;
+}
+
+/* Aperçu statique : visible dès le premier affichage, cadré comme le haut du canvas. */
+.apercu {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* La scène animée recouvre l'aperçu en fondu une fois prête. */
+.scene {
+  position: relative;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+}
+.prete {
+  opacity: 1;
+}
+
+/* Voile léger : la lisibilité est assurée par les panneaux de verre de la page,
+   le voile ne fait qu'adoucir les rubans les plus blancs. */
+.voile {
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 0.2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scene {
+    transition: none;
+  }
+}

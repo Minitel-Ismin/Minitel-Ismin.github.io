@@ -1,0 +1,280 @@
+/* Formulaire « glitch » : d'après Uiverse.io par pharmacist-sabot (licence MIT),
+   adapté à la réservation de la 1100 (police du site, champs date/heure, erreurs,
+   participants ajoutés dynamiquement). */
+
+.carte {
+  --bg-color: #0d0d0d;
+  --primary-color: #00f2ea;
+  --secondary-color: #a855f7;
+  --text-color: #e5e5e5;
+  --glitch-anim-duration: 0.5s;
+
+  width: 100%;
+  max-width: 420px;
+  margin-inline: auto;
+  overflow: hidden;
+  border: 1px solid rgba(0, 242, 234, 0.2);
+  background-color: var(--bg-color);
+  box-shadow:
+    0 0 20px rgba(0, 242, 234, 0.1),
+    inset 0 0 10px rgba(0, 0, 0, 0.5);
+  font-family: var(--font-mono);
+}
+
+/* --- En-tête --- */
+.entete {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em 1em;
+  border-bottom: 1px solid rgba(0, 242, 234, 0.2);
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.titre {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  color: var(--primary-color);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.titre svg {
+  width: 1.2em;
+  height: 1.2em;
+  stroke: var(--primary-color);
+}
+
+.points span {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-left: 5px;
+  border-radius: 50%;
+  background-color: #333;
+}
+
+.corps {
+  padding: 2.25rem 1.5rem 1.5rem;
+}
+
+.paire {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1.25rem;
+}
+
+/* --- Champs à libellé flottant --- */
+.groupe {
+  position: relative;
+  margin-bottom: 1.75rem;
+}
+
+.libelle {
+  position: absolute;
+  top: 0.75em;
+  left: 0;
+  color: var(--primary-color);
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0.6;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.groupe input {
+  width: 100%;
+  padding: 0.75em 0;
+  border: none;
+  border-bottom: 2px solid rgba(0, 242, 234, 0.3);
+  background: transparent;
+  color: var(--text-color);
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  color-scheme: dark;
+  transition: border-color 0.3s ease;
+}
+.groupe input:focus {
+  border-color: var(--primary-color);
+}
+.groupe input[aria-invalid="true"] {
+  border-color: var(--color-error);
+}
+
+/* Libellé remonté : au focus, une fois rempli, et toujours pour la date et les heures
+   (le navigateur y affiche déjà « jj/mm/aaaa » ou « --:-- »). */
+.groupe input:focus + .libelle,
+.groupe input:not(:placeholder-shown) + .libelle,
+.groupe input[type="date"] + .libelle,
+.groupe input[type="time"] + .libelle {
+  top: -1.2em;
+  font-size: 0.8rem;
+  opacity: 1;
+}
+
+.groupe input:focus + .libelle::before,
+.groupe input:focus + .libelle::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-color);
+}
+.groupe input:focus + .libelle::before {
+  color: var(--secondary-color);
+  animation: glitch-anim var(--glitch-anim-duration) cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+.groupe input:focus + .libelle::after {
+  color: var(--primary-color);
+  animation: glitch-anim var(--glitch-anim-duration) cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both;
+}
+
+@keyframes glitch-anim {
+  0% {
+    transform: translate(0);
+    clip-path: inset(0 0 0 0);
+  }
+  20% {
+    transform: translate(-5px, 3px);
+    clip-path: inset(50% 0 20% 0);
+  }
+  40% {
+    transform: translate(3px, -2px);
+    clip-path: inset(20% 0 60% 0);
+  }
+  60% {
+    transform: translate(-4px, 2px);
+    clip-path: inset(80% 0 5% 0);
+  }
+  80% {
+    transform: translate(4px, -3px);
+    clip-path: inset(30% 0 45% 0);
+  }
+  100% {
+    transform: translate(0);
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.erreur {
+  margin-top: 0.4em;
+  color: var(--color-error);
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+
+.aide {
+  margin-top: -1rem;
+  margin-bottom: 1.75rem;
+  color: rgb(229 229 229 / 0.5);
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+
+/* Bloc des personnes ajoutées. */
+.participants {
+  margin-bottom: 0.5rem;
+  padding: 1.75rem 0 0 1rem;
+  border-left: 2px solid rgba(168, 85, 247, 0.4);
+}
+
+/* --- Bouton --- */
+.envoyer {
+  position: relative;
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.8em;
+  overflow: hidden;
+  border: 2px solid var(--primary-color);
+  background-color: transparent;
+  color: var(--primary-color);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.envoyer:hover,
+.envoyer:focus {
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+  box-shadow: 0 0 25px var(--primary-color);
+  outline: none;
+}
+.envoyer:active {
+  transform: scale(0.97);
+}
+
+.texteBouton {
+  position: relative;
+  z-index: 1;
+  transition: opacity 0.2s ease;
+}
+.envoyer:hover .texteBouton {
+  opacity: 0;
+}
+
+.envoyer::before,
+.envoyer::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-color);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.envoyer:hover::before,
+.envoyer:focus::before {
+  opacity: 1;
+  color: var(--secondary-color);
+  animation: glitch-anim var(--glitch-anim-duration) cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+.envoyer:hover::after,
+.envoyer:focus::after {
+  opacity: 1;
+  color: var(--bg-color);
+  animation: glitch-anim var(--glitch-anim-duration) cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both;
+}
+
+.note {
+  margin-top: 1rem;
+  color: rgb(229 229 229 / 0.5);
+  font-size: 0.7rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.statut:not(:empty) {
+  margin-top: 1.25rem;
+  font-family: var(--font-sans);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .groupe input:focus + .libelle::before,
+  .groupe input:focus + .libelle::after,
+  .envoyer:hover::before,
+  .envoyer:focus::before,
+  .envoyer:hover::after,
+  .envoyer:focus::after {
+    animation: none;
+    opacity: 0;
+  }
+  .envoyer:hover .texteBouton {
+    opacity: 1;
+  }
+}
