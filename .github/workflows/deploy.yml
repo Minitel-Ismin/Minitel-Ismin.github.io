@@ -1,4 +1,5 @@
-# Construit le site et le publie sur GitHub Pages à chaque push sur `main`.
+# Construit le site et le publie sur GitHub Pages à chaque push sur `main`,
+# puis crée une release GitHub contenant l'archive du site déployé.
 # Prérequis (une seule fois, par un admin de l'organisation) :
 #   Settings → Pages → Build and deployment → Source : « GitHub Actions ».
 name: Déploiement GitHub Pages
@@ -43,3 +44,27 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v5
+
+  release:
+    # Uniquement si le déploiement a réussi
+    needs: [build, deploy]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # nécessaire pour créer la release et le tag
+    steps:
+      # Artefact « github-pages » = artifact.tar, identique à ce qui est déployé
+      - uses: actions/download-artifact@v8
+        with:
+          name: github-pages
+
+      - name: Créer la release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          TAG="site-$(date -u +%Y.%m.%d)-${{ github.run_number }}"
+          gzip -c artifact.tar > "${TAG}.tar.gz"
+          gh release create "$TAG" "${TAG}.tar.gz" \
+            --target "${{ github.sha }}" \
+            --title "Site $TAG" \
+            --generate-notes
