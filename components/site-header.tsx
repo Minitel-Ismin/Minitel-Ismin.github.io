@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpRightIcon, ListIcon, XIcon } from "@phosphor-icons/react/dist/ssr";
+import { ListIcon, XIcon } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
@@ -102,7 +102,7 @@ export function SiteHeader() {
                       <Link
                         href={item.href}
                         aria-current={actif ? "page" : undefined}
-                        className={`relative block px-2.5 py-2 font-mono text-[0.7rem] tracking-wider uppercase transition-colors duration-200 ${
+                        className={`relative block px-2 py-2 font-mono text-[0.7rem] tracking-wider whitespace-nowrap uppercase transition-colors duration-200 2xl:px-2.5 ${
                           actif ? "text-paper" : "text-muted hover:text-paper"
                         } ${
                           verre
@@ -114,7 +114,7 @@ export function SiteHeader() {
                         {actif && !verre && (
                           <span
                             aria-hidden
-                            className="absolute inset-x-2.5 -bottom-[13px] h-px bg-phosphor shadow-[0_0_8px_var(--color-phosphor)]"
+                            className="absolute inset-x-2 -bottom-[13px] h-px 2xl:inset-x-2.5 bg-phosphor shadow-[0_0_8px_var(--color-phosphor)]"
                           />
                         )}
                       </Link>
@@ -171,14 +171,6 @@ export function SiteHeader() {
               );
             })}
           </ul>
-          <a
-            href={site.liens.wiki}
-            target="_blank"
-            rel="noopener"
-            className="mt-8 inline-flex items-center gap-2 font-mono text-sm text-phosphor"
-          >
-            Wiki de l&apos;association <ArrowUpRightIcon aria-hidden size={14} weight="bold" />
-          </a>
         </nav>
       )}
     </>

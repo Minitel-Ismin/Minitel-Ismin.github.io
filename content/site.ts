@@ -13,7 +13,7 @@ export const site = {
     lignes: ["Hébergement Georges Charpak Provence", "879 avenue de Mimet", "13120 Gardanne"],
   },
   liens: {
-    wiki: "https://minitel.emse.fr/wiki/",
+    depot: "https://github.com/Minitel-Ismin/Minitel-Ismin.github.io",
     servicesNumeriques: "https://services-numeriques.emse.fr/minitel/",
     myIsmin: "https://myismin.emse.fr/",
     instagram: "https://www.instagram.com/minitel.ismin/",
@@ -29,6 +29,7 @@ export const navigation = [
   { href: "/bureau/", label: "Le bureau" },
   { href: "/projets/", label: "Nos projets" },
   { href: "/reserver-1100/", label: "Réserver 1100" },
+  { href: "/wiki/", label: "Wiki" },
   { href: "/contact/", label: "Nous contacter" },
   { href: "/hall-of-fame/", label: "Hall of fame" },
 ] as const;

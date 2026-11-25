@@ -31,8 +31,8 @@ const aides = [
   {
     titre: "Eduroam, VPN, imprimantes",
     texte: "Les tutos de l'asso pour les services de l'école sont rassemblés sur le wiki.",
-    href: site.liens.wiki,
-    externe: true,
+    href: "/wiki/",
+    externe: false,
   },
   {
     titre: "Suivre les événements",

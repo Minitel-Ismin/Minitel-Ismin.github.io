@@ -193,6 +193,192 @@
   }
 }
 
+/* Contenu des pages du wiki (HTML généré depuis content/wiki/*.md). */
+.wiki-prose {
+  max-width: 70ch;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: rgb(231 235 228 / 0.9);
+}
+.wiki-prose > :first-child,
+.wiki-onglets__panneau > :first-child {
+  margin-top: 0;
+}
+.wiki-prose :is(h2, h3, h4) {
+  scroll-margin-top: 6rem;
+  color: var(--color-paper);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+.wiki-prose h2 {
+  margin-top: 3.25rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--color-line);
+  font-size: 1.6rem;
+}
+.wiki-prose > h2:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+.wiki-prose h3 {
+  margin-top: 2.25rem;
+  font-size: 1.2rem;
+}
+.wiki-prose h4 {
+  margin-top: 1.75rem;
+  font-size: 1.05rem;
+}
+.wiki-prose :is(p, ul, ol, pre, blockquote) {
+  margin-top: 1.1rem;
+}
+.wiki-prose :is(ul, ol) {
+  padding-left: 1.4rem;
+}
+.wiki-prose ul {
+  list-style: none;
+}
+.wiki-prose ul > li {
+  position: relative;
+}
+.wiki-prose ul > li::before {
+  content: "›";
+  position: absolute;
+  left: -1.15rem;
+  font-family: var(--font-mono);
+  color: var(--color-phosphor);
+}
+.wiki-prose ol {
+  list-style: decimal;
+}
+.wiki-prose ol > li::marker {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  color: var(--color-phosphor);
+}
+.wiki-prose li + li {
+  margin-top: 0.45rem;
+}
+.wiki-prose li > :is(p, ul, ol, pre):first-child {
+  margin-top: 0;
+}
+.wiki-prose li > :is(ul, ol, pre, p) {
+  margin-top: 0.75rem;
+}
+.wiki-prose a {
+  color: var(--color-paper);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: var(--color-phosphor-dim);
+  text-underline-offset: 0.25em;
+  overflow-wrap: anywhere;
+  transition: color 200ms;
+}
+.wiki-prose a:hover {
+  color: var(--color-phosphor);
+}
+.wiki-prose strong {
+  color: var(--color-paper);
+  font-weight: 600;
+}
+.wiki-prose :not(pre) > code {
+  border: 1px solid var(--color-line);
+  border-radius: 0.35rem;
+  background: var(--color-ink-2);
+  padding: 0.1em 0.35em;
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+  overflow-wrap: anywhere;
+}
+.wiki-prose pre {
+  overflow-x: auto;
+  border: 1px solid var(--color-line);
+  border-radius: 0.8rem;
+  background: var(--color-ink-2);
+  padding: 1rem 1.15rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: var(--color-paper);
+}
+.wiki-prose blockquote {
+  border-left: 2px solid var(--color-phosphor-dim);
+  padding-left: 1.15rem;
+  color: var(--color-muted);
+}
+.wiki-prose img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-block: 0.4rem;
+  border: 1px solid var(--color-line);
+  border-radius: 0.6rem;
+  background: var(--color-ink-2);
+}
+.wiki-prose hr {
+  margin-block: 2.5rem;
+  border-color: var(--color-line);
+}
+
+/* Onglets du wiki, sans JavaScript : le panneau qui suit le bouton radio coché s'affiche. */
+.wiki-onglets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 1.75rem;
+}
+.wiki-onglets__choix {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+.wiki-onglets__nom {
+  cursor: pointer;
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  padding: 0.4rem 0.95rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--color-muted);
+  transition:
+    color 200ms,
+    border-color 200ms,
+    background-color 200ms;
+}
+.wiki-onglets__nom:hover {
+  color: var(--color-paper);
+  border-color: var(--color-line-strong);
+}
+.wiki-onglets__choix:checked + .wiki-onglets__nom {
+  border-color: var(--color-phosphor);
+  background: var(--color-phosphor-soft);
+  color: var(--color-paper);
+}
+.wiki-onglets__choix:focus-visible + .wiki-onglets__nom {
+  outline: 2px solid var(--color-phosphor);
+  outline-offset: 3px;
+}
+.wiki-onglets__panneau {
+  display: none;
+  order: 1;
+  width: 100%;
+  margin-top: 0.5rem;
+  border: 1px solid var(--color-line);
+  border-radius: 1rem;
+  padding: 1.5rem 1.25rem;
+}
+@media (min-width: 40rem) {
+  .wiki-onglets__panneau {
+    padding: 1.75rem 1.75rem;
+  }
+}
+.wiki-onglets__choix:checked + .wiki-onglets__nom + .wiki-onglets__panneau {
+  display: block;
+}
+
 /* Délai d'apparition en cascade : style={{ "--i": 2 }} */
 .rise {
   animation: var(--animate-rise);

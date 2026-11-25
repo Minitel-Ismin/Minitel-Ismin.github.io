@@ -16,17 +16,20 @@ const ressources = [
   {
     titre: "Wiki de l'association",
     texte: "Eduroam, VPN de l'école, imprimantes, lecteurs réseau, Seafile, statuts et règlement intérieur.",
-    href: site.liens.wiki,
+    href: "/wiki/",
+    externe: false,
   },
   {
     titre: "Instagram",
     texte: "Pour suivre l'actualité de l'asso au fil de l'année : @minitel.ismin.",
     href: site.liens.instagram,
+    externe: true,
   },
   {
     titre: "LinkedIn",
     texte: "La page de l'association, pour garder le contact avec les partenaires et les anciens.",
     href: site.liens.linkedin,
+    externe: true,
   },
 ];
 
@@ -102,25 +105,32 @@ export default function PageAPropos() {
             Ressources
           </h2>
           <div className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-3">
-            {ressources.map((r) => (
-              <a
-                key={r.titre}
-                href={r.href}
-                target="_blank"
-                rel="noopener"
-                className="group block bg-ink p-7 transition-colors duration-300 hover:bg-ink-2 sm:p-8"
-              >
-                <span className="flex items-start justify-between gap-4">
-                  <span className="text-xl font-semibold tracking-tight">{r.titre}</span>
-                  <ArrowUpRightIcon
-                    aria-hidden
-                    size={20}
-                    className="mt-1 shrink-0 text-faint transition-colors group-hover:text-phosphor"
-                  />
-                </span>
-                <span className="mt-3 block leading-relaxed text-muted">{r.texte}</span>
-              </a>
-            ))}
+            {ressources.map((r) => {
+              const Icone = r.externe ? ArrowUpRightIcon : ArrowRightIcon;
+              const contenu = (
+                <>
+                  <span className="flex items-start justify-between gap-4">
+                    <span className="text-xl font-semibold tracking-tight">{r.titre}</span>
+                    <Icone
+                      aria-hidden
+                      size={20}
+                      className="mt-1 shrink-0 text-faint transition-colors group-hover:text-phosphor"
+                    />
+                  </span>
+                  <span className="mt-3 block leading-relaxed text-muted">{r.texte}</span>
+                </>
+              );
+              const classes = "group block bg-ink p-7 transition-colors duration-300 hover:bg-ink-2 sm:p-8";
+              return r.externe ? (
+                <a key={r.titre} href={r.href} target="_blank" rel="noopener" className={classes}>
+                  {contenu}
+                </a>
+              ) : (
+                <Link key={r.titre} href={r.href} className={classes}>
+                  {contenu}
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>

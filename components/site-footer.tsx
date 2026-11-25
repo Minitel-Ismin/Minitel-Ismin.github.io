@@ -1,5 +1,4 @@
 import {
-  ArrowUpRightIcon,
   EnvelopeSimpleIcon,
   InstagramLogoIcon,
   LinkedinLogoIcon,
@@ -69,17 +68,6 @@ export function SiteFooter() {
               >
                 <LinkedinLogoIcon aria-hidden size={16} />
                 Association MINITEL
-              </a>
-            </li>
-            <li>
-              <a
-                href={site.liens.wiki}
-                target="_blank"
-                rel="noopener"
-                className="inline-flex items-center gap-2 text-muted transition-colors hover:text-phosphor"
-              >
-                <ArrowUpRightIcon aria-hidden size={16} />
-                Wiki de l&apos;association
               </a>
             </li>
           </ul>

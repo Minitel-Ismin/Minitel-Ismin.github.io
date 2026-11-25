@@ -1,5 +1,6 @@
-import { ArrowUpRightIcon, InstagramLogoIcon, LinkedinLogoIcon } from "@phosphor-icons/react/dist/ssr";
+import { ArrowRightIcon, InstagramLogoIcon, LinkedinLogoIcon } from "@phosphor-icons/react/dist/ssr";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ContactForm } from "@/components/contact-form";
 import { CopyEmail } from "@/components/copy-email";
 import { PageHeader } from "@/components/page-header";
@@ -77,15 +78,13 @@ export default function PageContact() {
             </address>
           </div>
 
-          <a
-            href={site.liens.wiki}
-            target="_blank"
-            rel="noopener"
+          <Link
+            href="/wiki/"
             className="group block rounded-2xl border border-line bg-ink-2 p-6 transition-colors hover:border-phosphor/50"
           >
             <span className="flex items-start justify-between gap-4 font-semibold">
               Avant d&apos;écrire
-              <ArrowUpRightIcon
+              <ArrowRightIcon
                 aria-hidden
                 size={18}
                 className="shrink-0 text-faint transition-colors group-hover:text-phosphor"
@@ -95,7 +94,7 @@ export default function PageContact() {
               Eduroam, VPN de l&apos;école, imprimantes : la réponse est peut-être déjà sur le
               wiki.
             </span>
-          </a>
+          </Link>
         </aside>
       </div>
     </>
