@@ -44,25 +44,6 @@ export const projets: Projet[] = [
     ],
   },
   {
-    slug: "tibbar_20",
-    titre: "TIBBAR des 20 ans",
-    resume: "Le TIBBAR organisé pour les 20 ans de la COMIF, avec Switch et karaoké.",
-    sousTitre: "TIBBAR organisé à l'occasion des 20 ans de la COMIF",
-    statut: "en-cours",
-    annee: "2024",
-    tags: ["Événement", "Gaming", "Collaboration"],
-    paragraphes: [
-      "Le TIBBAR des 20 ans de la COMIF a été le plus gros événement de l'année sur le campus.",
-      "MINITEL s'est joint à la COMIF pour ce MINIBAR géant en mettant à disposition de tous la Nintendo Switch avec Mario Kart, Super Smash Bros. et d'autres jeux, ainsi qu'un karaoké.",
-      "Ce fut un réel honneur de participer aux côtés de la COMIF à un si bel événement et de proposer ces activités, qui ont toujours autant de succès.",
-    ],
-    infos: [
-      { label: "Année", valeur: "2024" },
-      { label: "Avec", valeur: "La COMIF" },
-      { label: "Matériel", valeur: "Nintendo Switch, karaoké" },
-    ],
-  },
-  {
     slug: "nuit-info",
     titre: "Nuit de l'Info",
     resume: "Le défi national où les étudiants développent un projet en une seule nuit.",

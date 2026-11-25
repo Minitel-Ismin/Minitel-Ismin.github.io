@@ -12,6 +12,8 @@ const ANCIENNES_PAGES: Record<string, string> = {
   "/frise.html": "/histoire/",
   "/contact.html": "/contact/",
   "/photo.html": "/hall-of-fame/",
+  // Projet retiré du site.
+  "/projets/tibbar_20.html": "/projets/",
 };
 
 export function LegacyRedirect() {
