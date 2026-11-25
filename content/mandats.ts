@@ -40,7 +40,7 @@ export const mandats: Mandat[] = [
       {
         nom: "Pôle Formation",
         membres: [
-          { prenom: "Périne", nom: "Mbou", role: "Responsable formation" },
+          { prenom: "Perline", nom: "Mbou", role: "Responsable formation" },
           { prenom: "Nour", nom: "Zenkri", role: "Chargé formation" },
         ],
       },
@@ -55,7 +55,7 @@ export const mandats: Mandat[] = [
       {
         nom: "Pôle Cyber",
         membres: [
-          { prenom: "Matko", nom: "Vijorovic", role: "Responsable cyber" },
+          { prenom: "Marko", nom: "Vijorovic", role: "Responsable cyber" },
           { prenom: "Yani", nom: "Bellal-Henot", role: "Responsable cyber" },
         ],
       },
@@ -99,12 +99,17 @@ export const mandats: Mandat[] = [
           { prenom: "Kian", nom: "Debeaud", role: "Vice-président" },
           { prenom: "Abdelmalek", nom: "Moussouni", role: "Secrétaire général" },
           { prenom: "Gabriel", nom: "Chatelain", role: "Trésorier" },
+          {
+            prenom: "Elouan",
+            nom: "Marron",
+            role: "Responsable technique",
+            linkedin: "https://www.linkedin.com/in/mrbrownfr",
+          },
         ],
       },
       {
         nom: "Pôle Technique",
         membres: [
-          { prenom: "Elouan", nom: "Marron", role: "Responsable réseau & serveur" },
           { prenom: "Matthieu", nom: "Zajac", role: "Responsable hardware" },
           { prenom: "Youssef", nom: "Zaimi", role: "Responsable site & VPN" },
           { prenom: "Vlad", nom: "Munteanu", role: "Responsable développement" },
