@@ -8,7 +8,7 @@ export const site = {
     "MINITEL est l'association réseau de l'École des Mines de Saint-Étienne sur le campus Georges Charpak, à Gardanne.",
   url: "https://minitel-ismin.github.io",
   fondation: 2015,
-  email: "minitel13120@gmail.com",
+  email: "minitel@emse.fr",
   adresse: {
     lignes: ["Hébergement Georges Charpak Provence", "879 avenue de Mimet", "13120 Gardanne"],
   },
